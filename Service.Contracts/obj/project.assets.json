@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\hjbea\\.nuget\\packages\\": {}
+    "C:\\Users\\squar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service.Contracts\\Service.Contracts.csproj",
+      "projectUniqueName": "D:\\Project 2\\ProjectTwoSkillstorm\\Service.Contracts\\Service.Contracts.csproj",
       "projectName": "Service.Contracts",
-      "projectPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service.Contracts\\Service.Contracts.csproj",
-      "packagesPath": "C:\\Users\\hjbea\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service.Contracts\\obj\\",
+      "projectPath": "D:\\Project 2\\ProjectTwoSkillstorm\\Service.Contracts\\Service.Contracts.csproj",
+      "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
+      "outputPath": "D:\\Project 2\\ProjectTwoSkillstorm\\Service.Contracts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hjbea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
