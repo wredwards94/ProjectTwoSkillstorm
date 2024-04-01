@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project 2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj": {}
+    "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Contracts\\Contracts.csproj": {}
   },
   "projects": {
-    "D:\\Project 2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj": {
+    "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project 2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Contracts\\Contracts.csproj",
         "projectName": "Contracts",
-        "projectPath": "D:\\Project 2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
-        "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-        "outputPath": "D:\\Project 2\\ProjectTwoSkillstorm\\Contracts\\obj\\",
+        "projectPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Contracts\\Contracts.csproj",
+        "packagesPath": "C:\\Users\\hjbea\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hjbea\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
