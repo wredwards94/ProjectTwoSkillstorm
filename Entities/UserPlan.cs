@@ -7,6 +7,5 @@
         public Guid PlanId { get; set; }
         public User? User { get; set; }
         //public PhonePlan? Plan { get; set; }
-
     }
 }
