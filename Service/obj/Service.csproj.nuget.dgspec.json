@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service\\Service.csproj": {}
+    "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Service\\Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service\\Service.csproj": {
+    "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service\\Service.csproj",
+        "projectUniqueName": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service\\Service.csproj",
-        "packagesPath": "C:\\Users\\hjbea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service\\obj\\",
+        "projectPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
+        "outputPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hjbea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
