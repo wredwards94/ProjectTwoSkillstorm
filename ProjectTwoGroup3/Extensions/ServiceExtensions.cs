@@ -1,4 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using Contracts;
+using LoggerService;
 
 namespace ProjectTwoGroup3.Extensions
 {
@@ -21,5 +23,8 @@ namespace ProjectTwoGroup3.Extensions
             {
 
             });
+
+        public static void ConfigureLoggerService(this IServiceCollection services) =>
+            services.AddSingleton<ILoggerManager, LoggerManager>();
     }
 }

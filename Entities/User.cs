@@ -28,5 +28,6 @@ namespace Entities
         public string? Address { get; set; }
 
         //Collection Property for phone plan
+        IEnumerable<UserPlan>? UserPlans { get; set; }
     }
 }

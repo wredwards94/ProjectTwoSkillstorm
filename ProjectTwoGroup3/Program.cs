@@ -8,14 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
+//builder.Services.ConfigureLoggerService();
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
-if(app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-} else
+}
+else
 {
     app.UseHsts();
 }
