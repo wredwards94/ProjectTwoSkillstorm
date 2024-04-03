@@ -1,6 +1,6 @@
 ﻿namespace Service.Contracts
 {
-    public class Class1
+    public interface IBillingService
     {
 
     }
