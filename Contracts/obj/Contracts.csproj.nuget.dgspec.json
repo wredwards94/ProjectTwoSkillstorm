@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj": {}
+    "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj": {}
   },
   "projects": {
-    "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj": {
+    "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj",
         "projectName": "Contracts",
-        "projectPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+        "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj",
         "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Contracts\\obj\\",
+        "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -9,7 +9,7 @@ namespace Entities
 {
     public class User
     {
-        Guid Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string? FirstName { get; set; }
@@ -28,5 +28,6 @@ namespace Entities
         public string? Address { get; set; }
 
         //Collection Property for phone plan
+        IEnumerable<UserPlan>? UserPlans { get; set; }
     }
 }
