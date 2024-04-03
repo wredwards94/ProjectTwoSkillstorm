@@ -3,7 +3,7 @@
 namespace ProjectTwoGroup3.Controllers
 {
     [ApiController]
-    [Route("user/{userId:guid}[controller]")]
+    [Route("user/{userId:guid}/[controller]")]
     public class BillingController : ControllerBase
     {
     }
