@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+      "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
       "projectName": "Contracts",
-      "projectPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+      "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
       "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Contracts\\obj\\",
+      "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstorm\\Contracts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",

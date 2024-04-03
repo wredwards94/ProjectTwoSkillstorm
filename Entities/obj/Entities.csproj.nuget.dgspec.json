@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Entities\\Entities.csproj": {}
+    "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Entities\\Entities.csproj": {
+    "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstorm\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
+      "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
       "projectName": "ProjectTwoGroup3",
-      "projectPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
+      "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
       "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\lol2\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\obj\\",
+      "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
