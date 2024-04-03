@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Repository\\Repository.csproj": {}
+    "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Repository\\Repository.csproj": {}
   },
   "projects": {
-    "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj": {
+    "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj",
         "projectName": "Contracts",
-        "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+        "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj",
         "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\obj\\",
+        "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -72,14 +72,14 @@
         }
       }
     },
-    "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj": {
+    "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -140,14 +140,14 @@
         }
       }
     },
-    "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Repository\\Repository.csproj": {
+    "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -164,11 +164,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj": {
-                "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj"
+              "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj": {
+                "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj"
               },
-              "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj"
+              "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\Entities.csproj"
               }
             }
           }

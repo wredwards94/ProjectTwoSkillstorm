@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nj98Tklv9dyd9yi5xzXjcgKA11e7YSBS2NTrxbGTd11oElpZkd3kXcklyceiETVaGcbAxOjpw7J//E/gGqmv9A==",
+  "dgSpecHash": "cAFqPeV0g6cFJgrZfmEeKbQHyO0be5quKZ41ZUrOE8hO9hgfloLs8+TQP51eZ3wm7qHm94S55AS6ikp3ZXm8kw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\squar\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\squar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

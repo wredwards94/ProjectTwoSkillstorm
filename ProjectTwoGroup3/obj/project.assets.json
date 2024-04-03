@@ -4162,11 +4162,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
+      "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
       "projectName": "ProjectTwoGroup3",
-      "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
+      "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
       "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\ProjectTwoGroup3\\obj\\",
+      "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\ProjectTwoGroup3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4183,8 +4183,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Repository\\Repository.csproj": {
-              "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Repository\\Repository.csproj"
+            "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Repository\\Repository.csproj"
             }
           }
         }

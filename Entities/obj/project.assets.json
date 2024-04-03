@@ -2231,11 +2231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
+      "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\Entities.csproj",
+      "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\Entities.csproj",
       "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Entities\\obj\\",
+      "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",

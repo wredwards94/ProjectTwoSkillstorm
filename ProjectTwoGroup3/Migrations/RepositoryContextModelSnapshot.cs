@@ -22,47 +22,6 @@ namespace ProjectTwoGroup3.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Entities.Billing", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("BillingDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsPaid")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PaymentMethod")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("PlanId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("TotalAmount")
-                        .HasColumnType("money");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("UserPlanId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PlanId");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("UserPlanId");
-
-                    b.ToTable("Billings");
-                });
-
             modelBuilder.Entity("Entities.Device", b =>
                 {
                     b.Property<Guid>("Id")
@@ -105,7 +64,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "Grey",
                             Manufacturer = "Samsung",
                             Model = "Galaxy S24 Ultra",
-                            PhoneNumber = "17187624769",
+                            PhoneNumber = "7187624769",
                             Storage = "128GB"
                         },
                         new
@@ -114,7 +73,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "Blue",
                             Manufacturer = "Apple",
                             Model = "iPhone 15",
-                            PhoneNumber = "13036313605",
+                            PhoneNumber = "3036313605",
                             Storage = "256GB"
                         },
                         new
@@ -123,7 +82,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "Mint Blue",
                             Manufacturer = "Google",
                             Model = "Pixel 8 Pro",
-                            PhoneNumber = "18472898809",
+                            PhoneNumber = "8472898809",
                             Storage = "128GB"
                         },
                         new
@@ -132,7 +91,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "Violet",
                             Manufacturer = "Google",
                             Model = "Pixel 7",
-                            PhoneNumber = "12085544516",
+                            PhoneNumber = "2085544516",
                             Storage = "256GB"
                         },
                         new
@@ -141,7 +100,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "White",
                             Manufacturer = "Apple",
                             Model = "iPhone 13",
-                            PhoneNumber = "17712780071",
+                            PhoneNumber = "7712780071",
                             Storage = "64GB"
                         },
                         new
@@ -150,7 +109,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "Red",
                             Manufacturer = "Motorola",
                             Model = "Razr Plus",
-                            PhoneNumber = "15418064868",
+                            PhoneNumber = "5418064868",
                             Storage = "128GB"
                         },
                         new
@@ -159,7 +118,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "Blue",
                             Manufacturer = "Samsung",
                             Model = "iPhone 15 Plus",
-                            PhoneNumber = "12105176786",
+                            PhoneNumber = "2105176786",
                             Storage = "128GB"
                         },
                         new
@@ -168,7 +127,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "Blue",
                             Manufacturer = "Apple",
                             Model = "iPhone 12",
-                            PhoneNumber = "15127710406",
+                            PhoneNumber = "5127710406",
                             Storage = "128GB"
                         },
                         new
@@ -177,7 +136,7 @@ namespace ProjectTwoGroup3.Migrations
                             Color = "Purple",
                             Manufacturer = "Samsung",
                             Model = "Galaxy S21+",
-                            PhoneNumber = "12197287862",
+                            PhoneNumber = "2197287862",
                             Storage = "512GB"
                         });
                 });
@@ -397,29 +356,6 @@ namespace ProjectTwoGroup3.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Entities.Billing", b =>
-                {
-                    b.HasOne("Entities.PhonePlan", "Plan")
-                        .WithMany()
-                        .HasForeignKey("PlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.UserPlan", null)
-                        .WithMany("Bills")
-                        .HasForeignKey("UserPlanId");
-
-                    b.Navigation("Plan");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Entities.UserPlan", b =>
                 {
                     b.HasOne("Entities.PhonePlan", "Plan")
@@ -437,11 +373,6 @@ namespace ProjectTwoGroup3.Migrations
                     b.Navigation("Plan");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Entities.UserPlan", b =>
-                {
-                    b.Navigation("Bills");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lcd2OGQnE3EZk0BuEBSEm+DsLo7Xm8ZsSUBKK2fImrcbJx8iRqBnZpMmwrCy/AxgUpwLi6n9k7IzyVG3SGCgvw==",
+  "dgSpecHash": "5GSaUQot95VyT9ScBIcONTeK89qdm44Yoy+7f0/CXOltprWUIg8xUfmWDDuK8YnYZwaIfjpWG481+AABwOy0dQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Service.Contracts\\Service.Contracts.csproj",
+  "projectFilePath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Service.Contracts\\Service.Contracts.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\squar\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\squar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

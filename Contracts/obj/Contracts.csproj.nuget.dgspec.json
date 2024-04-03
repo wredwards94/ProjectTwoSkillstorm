@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj": {}
+    "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj": {
+    "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj",
         "projectName": "Contracts",
-        "projectPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\Contracts.csproj",
+        "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\Contracts.csproj",
         "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\squar\\source\\repos\\ProjectTwoSkillstorm\\Contracts\\obj\\",
+        "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
