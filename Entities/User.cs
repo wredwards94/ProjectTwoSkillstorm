@@ -9,7 +9,7 @@ namespace Entities
 {
     public class User
     {
-        Guid Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string? FirstName { get; set; }

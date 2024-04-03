@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "nMokNFVUN4hc0cxojT1jb3Su/AUrzaJfyVjlO2fb7zEhhyc9hX97OCZn2VRoZvxEh0ndFNihwsYOvGj24AB2cQ==",
+  "dgSpecHash": "rGD2mOhArdB4jFu3DnAbR8Tr6/bkdcMm0rU6wHjrKmNdNmro+dpiOoDwalk0qXWNVTW+YiMAIRuITfQQMYSloA==",
   "success": true,
   "projectFilePath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
   "expectedPackageFiles": [
@@ -84,5 +84,12 @@
     "C:\\Users\\hjbea\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\hjbea\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\ProjectTwoGroup3\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

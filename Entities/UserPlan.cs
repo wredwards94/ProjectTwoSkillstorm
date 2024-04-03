@@ -13,8 +13,11 @@ namespace Entities
         public Guid PlanId { get; set; }
         public User? User { get; set; }
         public PhonePlan? Plan { get; set; }
+<<<<<<< HEAD
 
         // Collection for billing
         public ICollection<Billing>? Bills { get; set; }
+=======
+>>>>>>> origin/main
     }
 }
