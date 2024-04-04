@@ -840,6 +840,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entities.dll": {}
+        }
       }
     }
   },
@@ -2218,27 +2228,33 @@
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/Entities.csproj",
+      "msbuildProject": "../Entities/Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\squar\\.nuget\\packages\\": {}
+    "C:\\Users\\hjbea\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Service.Contracts\\Service.Contracts.csproj",
+      "projectUniqueName": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service.Contracts\\Service.Contracts.csproj",
       "projectName": "Service.Contracts",
-      "projectPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Service.Contracts\\Service.Contracts.csproj",
-      "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\squar\\Source\\Repos\\ProjectTwoSkillstormTest\\Service.Contracts\\obj\\",
+      "projectPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service.Contracts\\Service.Contracts.csproj",
+      "packagesPath": "C:\\Users\\hjbea\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service.Contracts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hjbea\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2251,7 +2267,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Entities\\Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2292,7 +2312,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

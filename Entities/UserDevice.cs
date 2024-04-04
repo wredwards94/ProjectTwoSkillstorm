@@ -14,8 +14,10 @@ namespace ProjectTwoSkillstorm.Entities
 
         [ForeignKey(nameof(UserPlan))]
         public string? UserPlanID { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime? ActivationDate { get; set; }
+
         // Add any additional properties or methods here
     }
 }

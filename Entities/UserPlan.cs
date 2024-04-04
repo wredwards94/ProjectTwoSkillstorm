@@ -13,5 +13,9 @@ namespace Entities
         public Guid PlanId { get; set; }
         public User? User { get; set; }
         public PhonePlan? Plan { get; set; }
+
+        // Collection for billing
+        //public ICollection<Billing>? Bills { get; set; }
+
     }
 }
