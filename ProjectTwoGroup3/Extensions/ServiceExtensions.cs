@@ -1,6 +1,8 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using Contracts;
 using LoggerService;
+using Microsoft.EntityFrameworkCore;
+using Repository;
 
 namespace ProjectTwoGroup3.Extensions
 {
@@ -26,5 +28,9 @@ namespace ProjectTwoGroup3.Extensions
 
         public static void ConfigureLoggerService(this IServiceCollection services) =>
             services.AddSingleton<ILoggerManager, LoggerManager>();
+
+        public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
+            services.AddDbContext<RepositoryContext>(opts =>
+                opts.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
     }
 }
