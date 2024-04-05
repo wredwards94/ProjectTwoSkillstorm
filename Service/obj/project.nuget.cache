@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DsRSBNHz2kTimSkWT7P+Ikeg3eBqem+W6JnCI68KLXkGBv3gUv/5NGbj38pgfQFZqVHGOAbkE4OeIIo1cYUOKA==",
+  "dgSpecHash": "94lGDTb5IYiaHI/8u4at2J0A724zQ6tpvcz3hWE0OrKrNS7Ui2KIC5uJF/c35Fs7xQyYvj3acbX+4anwWXX8Ew==",
   "success": true,
   "projectFilePath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Service\\Service.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hjbea\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\hjbea\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\hjbea\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\hjbea\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
