@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using Contracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
@@ -14,7 +15,10 @@ namespace Repository
         {
 
         }
+
+        public async Task<User> GetUser(Guid userId, bool trackChanges) =>
+            await FindByCondition(u => u.Id.Equals(userId), trackChanges).SingleOrDefaultAsync();
     }
- 
+
 
 }

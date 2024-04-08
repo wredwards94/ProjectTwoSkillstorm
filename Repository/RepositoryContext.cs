@@ -1,6 +1,6 @@
 ﻿using Entities;
 using Microsoft.EntityFrameworkCore;
-using ProjectTwoSkillstorm.Entities;
+//using ProjectTwoSkillstorm.Entities;
 
 
 namespace Repository

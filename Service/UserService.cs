@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Entities;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,12 @@ namespace Service
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
+        }
+
+        public async Task<User> GetUser(Guid userId, bool trackChanges)
+        {
+            var user = await _repositoryManager.User.GetUser(userId, trackChanges);
+            return user;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Shared.ResponseDtos
     public class DeviceDto
     {
         public Guid Id { get; set; }
-        public string? PhoneNumber { get; set; }
+        //public string? PhoneNumber { get; set; }
         public string? Manufacturer { get; set; }
         public string? Model { get; set; }
         public string? Storage { get; set; }

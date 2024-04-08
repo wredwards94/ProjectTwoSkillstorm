@@ -6,8 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using Contracts;
-using Service.Contracts;
 using Shared.ResponseDtos;
 
 namespace Service
@@ -23,6 +21,13 @@ namespace Service
             _repositoryManager = repositoryManager;
             _logger = logger;
             _mapper = mapper;
+        }
+
+        public async Task<IEnumerable<DeviceDto>> GetAllDevices(bool trackChanges)
+        {
+            var devices = await _repositoryManager.Device.GetAllDevices(trackChanges);
+
+            return _mapper.Map<IEnumerable<DeviceDto>>(devices);
         }
     }
 }

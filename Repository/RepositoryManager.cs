@@ -7,7 +7,7 @@ using Contracts;
 
 namespace Repository
 {
-    public class RepositoryManager
+    public class RepositoryManager : IRepositoryManager
     {
         private readonly RepositoryContext _repositoryContext;
 

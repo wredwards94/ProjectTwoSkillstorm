@@ -11,6 +11,7 @@ public class UserDevice
 
     [ForeignKey(nameof(Device))]
     public Guid? DeviceID { get; set; }
+    public string? PhoneNumber { get; set; }
 
     [ForeignKey(nameof(UserPlan))]
     public Guid? UserPlanID { get; set; }
