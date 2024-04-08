@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Entities;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,12 @@ namespace Service
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
+        }
+
+        public async Task<IEnumerable<PhonePlan>> GetPhonePlans(bool trackChanges)
+        {
+            var phonePlans = await _repositoryManager.PhonePlan.GetPhonePlans(trackChanges);
+            return phonePlans;
         }
     }
 }

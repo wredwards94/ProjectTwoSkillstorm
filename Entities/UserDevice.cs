@@ -10,10 +10,11 @@ public class UserDevice
     public Guid Id { get; set; }
 
     [ForeignKey(nameof(Device))]
-    public string? DeviceID { get; set; }
+    public Guid? DeviceID { get; set; }
+    public string? PhoneNumber { get; set; }
 
     [ForeignKey(nameof(UserPlan))]
-    public string? UserPlanID { get; set; }
+    public Guid? UserPlanID { get; set; }
 
     [DataType(DataType.Date)]
     public DateTime? ActivationDate { get; set; }

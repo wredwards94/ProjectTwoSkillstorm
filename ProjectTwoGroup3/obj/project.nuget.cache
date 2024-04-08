@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "oNUKisdJTyC3YTvG+/oz5VXLY8K3HeMt4rD6qDak2YW6kGRdef8Z3aIAN2f+ztW3XODTErDLzZo6Onb+NYQRmA==",
+  "dgSpecHash": "jaY893iwABuWYymgl+g3leGAaJVRDYS4d5gQQS6qUawT1hsWS2gWYMYg7ZieaoSKVJ5DvXjRO2vnkMbgX4pgqg==",
   "success": true,
   "projectFilePath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\ProjectTwoGroup3\\ProjectTwoGroup3.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hjbea\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\hjbea\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\hjbea\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\hjbea\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

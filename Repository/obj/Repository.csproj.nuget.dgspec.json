@@ -27,7 +27,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\hjbea\\OneDrive\\Documents\\SkillStorm Docs\\SkillStorm C Sharp\\ProjectTwoGroup3\\Entities\\Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
