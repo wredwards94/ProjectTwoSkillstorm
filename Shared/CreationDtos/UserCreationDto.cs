@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Shared.CreationDtos
 {
-    public class User
+    public class UserCreationDto
     {
-        public Guid Id { get; set; }
-
         [Required]
         public string? FirstName { get; set; }
 
@@ -25,9 +23,5 @@ namespace Entities
 
         [Required]
         public string? Password { get; set; }
-        public string? Address { get; set; }
-
-        //Collection Property for phone plan
-        public IEnumerable<UserPlan>? UserPlans { get; set; }
     }
 }

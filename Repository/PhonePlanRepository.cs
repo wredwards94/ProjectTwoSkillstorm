@@ -15,7 +15,10 @@ namespace Repository
         {
         }
 
-        public async Task<IEnumerable<PhonePlan>> GetPhonePlans(bool trackChanges) => await
+        public Task<PhonePlan> GetPhonePlan(Guid id, bool trackChanges) =>
+            FindByCondition(p => p.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
+
+        public async Task<IEnumerable<PhonePlan>> GetPhonePlansAsync(bool trackChanges) => await
             FindAll(trackChanges).OrderBy(p => p.Price).ToListAsync();
     }
 }

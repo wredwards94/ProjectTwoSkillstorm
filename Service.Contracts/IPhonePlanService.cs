@@ -10,5 +10,6 @@ namespace Service.Contracts
     public interface IPhonePlanService
     {
         Task<IEnumerable<PhonePlan>> GetPhonePlans(bool trackChanges);
+        Task<PhonePlan> GetPhonePlan(Guid id, bool trackChanges);
     }
 }

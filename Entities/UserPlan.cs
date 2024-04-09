@@ -11,11 +11,14 @@ namespace Entities
 
         [ForeignKey(nameof(Plan))]
         public Guid PlanId { get; set; }
+        //[ForeignKey(nameof(UserDevice))]
+        //public string? DeviceId { get; set; }
         public User? User { get; set; }
         public PhonePlan? Plan { get; set; }
+        public ICollection<UserDevice>? Devices { get; set; }
 
         // Collection for billing
-        //public ICollection<Billing>? Bills { get; set; }
+        public ICollection<Billing>? Bills { get; set; }
 
     }
 }

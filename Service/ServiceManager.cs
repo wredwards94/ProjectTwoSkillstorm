@@ -23,7 +23,7 @@ namespace Service
             _phonePlanService = new Lazy<IPhonePlanService>(() => new PhonePlanService(repositoryManager, logger));
             _userDeviceService = new Lazy<IUserDeviceService>(() => new UserDeviceService(repositoryManager, logger));
             _userPlanService = new Lazy<IUserPlanService>(() => new UserPlanService(repositoryManager, logger));
-            _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, logger));
+            _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, logger, mapper));
         }
         public IDeviceService Device => _deviceService.Value;
         public IPhonePlanService PhonePlan => _phonePlanService.Value;
