@@ -1,6 +1,6 @@
-@ProjectTwoGroup3_HostAddress = http://localhost:5043
+@ProjectTwoGroup3_HostAddress = https://localhost:5000
 
-GET {{ProjectTwoGroup3_HostAddress}}/weatherforecast/
+GET {{ProjectTwoGroup3_HostAddress}}/device/
 Accept: application/json
 
 ###

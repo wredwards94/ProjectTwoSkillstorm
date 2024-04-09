@@ -18,5 +18,12 @@ namespace ProjectTwoGroup3.Controllers
             var phonePlans = await _serviceManager.PhonePlan.GetPhonePlans(trackChanges: false);
             return phonePlans;
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPhonePlan(Guid id)
+        {
+            var phonePlan = await _serviceManager.PhonePlan.GetPhonePlan(id, trackChanges: false);
+            return Ok(phonePlan);
+        }
     }
 }

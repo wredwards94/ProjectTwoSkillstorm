@@ -10,5 +10,6 @@ namespace Contracts
     public interface IUserRepository
     {
         Task<User> GetUser(Guid userId, bool trackChanges);
+        void CreateUser(User user);
     }
 }

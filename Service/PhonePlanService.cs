@@ -20,9 +20,15 @@ namespace Service
             _logger = logger;
         }
 
+        public async Task<PhonePlan> GetPhonePlan(Guid id, bool trackChanges)
+        {
+            var phonePlan = await _repositoryManager.PhonePlan.GetPhonePlan(id, trackChanges);
+            return phonePlan;
+        }
+
         public async Task<IEnumerable<PhonePlan>> GetPhonePlans(bool trackChanges)
         {
-            var phonePlans = await _repositoryManager.PhonePlan.GetPhonePlans(trackChanges);
+            var phonePlans = await _repositoryManager.PhonePlan.GetPhonePlansAsync(trackChanges);
             return phonePlans;
         }
     }
