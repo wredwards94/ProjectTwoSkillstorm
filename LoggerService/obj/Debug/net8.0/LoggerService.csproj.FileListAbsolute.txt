@@ -16,3 +16,21 @@ C:\Users\hjbea\OneDrive\Documents\SkillStorm Docs\SkillStorm C Sharp\ProjectTwoG
 C:\Users\hjbea\OneDrive\Documents\SkillStorm Docs\SkillStorm C Sharp\ProjectTwoGroup3\LoggerService\obj\Debug\net8.0\refint\LoggerService.dll
 C:\Users\hjbea\OneDrive\Documents\SkillStorm Docs\SkillStorm C Sharp\ProjectTwoGroup3\LoggerService\obj\Debug\net8.0\LoggerService.pdb
 C:\Users\hjbea\OneDrive\Documents\SkillStorm Docs\SkillStorm C Sharp\ProjectTwoGroup3\LoggerService\obj\Debug\net8.0\ref\LoggerService.dll
+D:\Code\Project3\LoggerService\bin\Debug\net8.0\LoggerService.deps.json
+D:\Code\Project3\LoggerService\bin\Debug\net8.0\LoggerService.dll
+D:\Code\Project3\LoggerService\bin\Debug\net8.0\LoggerService.pdb
+D:\Code\Project3\LoggerService\bin\Debug\net8.0\Contracts.dll
+D:\Code\Project3\LoggerService\bin\Debug\net8.0\Entities.dll
+D:\Code\Project3\LoggerService\bin\Debug\net8.0\Contracts.pdb
+D:\Code\Project3\LoggerService\bin\Debug\net8.0\Entities.pdb
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerService.csproj.AssemblyReference.cache
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerService.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerService.AssemblyInfoInputs.cache
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerService.AssemblyInfo.cs
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerService.csproj.CoreCompileInputs.cache
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerService.sourcelink.json
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerSe.E7AEA5A8.Up2Date
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerService.dll
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\refint\LoggerService.dll
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\LoggerService.pdb
+D:\Code\Project3\LoggerService\obj\Debug\net8.0\ref\LoggerService.dll

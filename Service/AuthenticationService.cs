@@ -2,8 +2,6 @@
 using Contracts;
 using Entities;
 using Entities.ConfigurationModels;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -20,7 +18,7 @@ using Service.Contracts;
 
 namespace Service
 {
-    public class AuthenticationService : Contracts.IAuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
 
         private readonly ILoggerManager _logger;
@@ -70,7 +68,7 @@ namespace Service
         }
         private SigningCredentials GetSigningCredentials()
         {
-            var key = Encoding.UTF8.GetBytes(_jwtConfiguration.Secret);
+            var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
             var secret = new SymmetricSecurityKey(key);
 
             return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
