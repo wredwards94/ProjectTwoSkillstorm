@@ -5,6 +5,8 @@ using Shared.AuthenticationDtos;
 
 namespace ProjectTwoGroup3.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class AuthenticationController : ControllerBase
     {
         private readonly IServiceManager _service;

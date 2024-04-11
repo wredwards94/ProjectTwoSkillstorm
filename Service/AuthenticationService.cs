@@ -54,8 +54,6 @@ namespace Service
             var user = _mapper.Map<User>(userForRegistration);
             var result = await _userManager.CreateAsync(user, userForRegistration.Password);
 
-            if(result.Succeeded)
-                await _userManager.AddToRoleAsync(user, userForRegistration.Password);
             return result;
         }
         public async Task<bool> ValidateUser(UserForAuthenticationDto userForAuthentication)
@@ -77,7 +75,7 @@ namespace Service
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, _user.Username)
+                new Claim(ClaimTypes.Name, _user.UserName)
             };
 
             var roles = await _userManager.GetRolesAsync(_user);

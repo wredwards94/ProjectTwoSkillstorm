@@ -7,7 +7,7 @@ namespace Entities
         public Guid Id { get; set; }
 
         [ForeignKey(nameof(User))]
-        public Guid UserId { get; set; }
+        public string? UserId { get; set; }
 
         [ForeignKey(nameof(Plan))]
         public Guid PlanId { get; set; }
