@@ -15,9 +15,9 @@ namespace Repository.Configuration
         {
             // Sample data for User entity
             builder.HasData(
-                new User { Id = new Guid("25f87c58-9061-4bb7-aa3a-4a05177481d2"), FirstName = "John", LastName = "Doe", Email = "john.doe@example.com", Username = "johndoe", Password = "password1", Address = "123 Main St" },
-                new User { Id = new Guid("538091ec-802c-460d-a56e-8ce2414782b2"), FirstName = "Jane", LastName = "Smith", Email = "jane.smith@example.com", Username = "janesmith", Password = "password2", Address = "456 Elm St" },
-                new User { Id = new Guid("3f86cc51-c688-42de-aa44-d35c5db73bc4"), FirstName = "Elmer", LastName = "Fudd", Email = "elmer.fudd@example.com", Username = "elmerfudd", Password = "password3", Address = "789 Loon St" }
+                new User { Id = "25f87c58-9061-4bb7-aa3a-4a05177481d2", FirstName = "John", LastName = "Doe", Email = "john.doe@example.com", UserName = "johndoe", PasswordHash = "password1", Address = "123 Main St" },
+                new User { Id = "538091ec-802c-460d-a56e-8ce2414782b2", FirstName = "Jane", LastName = "Smith", Email = "jane.smith@example.com", UserName = "janesmith", PasswordHash = "password2", Address = "456 Elm St" },
+                new User { Id = "3f86cc51-c688-42de-aa44-d35c5db73bc4", FirstName = "Elmer", LastName = "Fudd", Email = "elmer.fudd@example.com", UserName = "elmerfudd", PasswordHash = "password3", Address = "789 Loon St" }
             );
         }
     }

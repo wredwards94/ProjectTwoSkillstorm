@@ -2,6 +2,7 @@
 using AutoMapper;
 using Entities;
 using Shared.CreationDtos;
+using Shared.AuthenticationDtos;
 
 namespace ProjectTwoGroup3
 {
@@ -11,6 +12,7 @@ namespace ProjectTwoGroup3
         {
             CreateMap<Device, DeviceDto>();
             CreateMap<UserCreationDto, User>();
+            CreateMap<UserForRegistrationDto, User>();
         }
     }
 }

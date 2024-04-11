@@ -16,7 +16,7 @@ namespace Entities
         public Guid PlanId { get; set; }
 
         [ForeignKey(nameof(User))]
-        public Guid UserId { get; set; }
+        public string? UserId { get; set; }
 
         [DataType(DataType.Currency)]
         public decimal TotalAmount { get; set; }

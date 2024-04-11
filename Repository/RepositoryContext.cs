@@ -1,11 +1,12 @@
 ﻿using Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 //using ProjectTwoSkillstorm.Entities;
 
 
 namespace Repository
 {
-    public class RepositoryContext : DbContext
+    public class RepositoryContext : IdentityDbContext<User>
     {
         public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
         {
@@ -16,14 +17,19 @@ namespace Repository
         public DbSet<User> Users { get; set; }
         public DbSet<UserDevice> UserDevices { get; set; }
         public DbSet<UserPlan> UserPlans { get; set; }
+        public DbSet<Billing> Billings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new Configuration.DeviceConfiguration());
             modelBuilder.ApplyConfiguration(new Configuration.PhonePlanConfiguration());
             modelBuilder.ApplyConfiguration(new Configuration.UserConfiguration());
             modelBuilder.ApplyConfiguration(new Configuration.UserDeviceConfiguration());
             modelBuilder.ApplyConfiguration(new Configuration.UserPlanConfiguration());
+            modelBuilder.ApplyConfiguration(new Configuration.RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new Configuration.BillingConfiguration());
+
         }
     }
 }

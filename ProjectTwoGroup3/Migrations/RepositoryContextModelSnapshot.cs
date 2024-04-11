@@ -17,10 +17,51 @@ namespace ProjectTwoGroup3.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.3")
+                .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Entities.Billing", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("BillingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("PlanId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid?>("UserPlanId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlanId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("UserPlanId");
+
+                    b.ToTable("Billings");
+                });
 
             modelBuilder.Entity("Entities.Device", b =>
                 {
@@ -174,16 +215,25 @@ namespace ProjectTwoGroup3.Migrations
 
             modelBuilder.Entity("Entities.User", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -193,48 +243,102 @@ namespace ProjectTwoGroup3.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("25f87c58-9061-4bb7-aa3a-4a05177481d2"),
+                            Id = "25f87c58-9061-4bb7-aa3a-4a05177481d2",
+                            AccessFailedCount = 0,
                             Address = "123 Main St",
+                            ConcurrencyStamp = "8d59c2d1-cfe1-4d73-86e9-3042212e567e",
                             Email = "john.doe@example.com",
+                            EmailConfirmed = false,
                             FirstName = "John",
                             LastName = "Doe",
-                            Password = "password1",
-                            Username = "johndoe"
+                            LockoutEnabled = false,
+                            PasswordHash = "password1",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "23476b19-8208-44d1-a912-cb419d28f39e",
+                            TwoFactorEnabled = false,
+                            UserName = "johndoe"
                         },
                         new
                         {
-                            Id = new Guid("538091ec-802c-460d-a56e-8ce2414782b2"),
+                            Id = "538091ec-802c-460d-a56e-8ce2414782b2",
+                            AccessFailedCount = 0,
                             Address = "456 Elm St",
+                            ConcurrencyStamp = "0a0dc04e-8217-43b8-8511-c13d1cc888ea",
                             Email = "jane.smith@example.com",
+                            EmailConfirmed = false,
                             FirstName = "Jane",
                             LastName = "Smith",
-                            Password = "password2",
-                            Username = "janesmith"
+                            LockoutEnabled = false,
+                            PasswordHash = "password2",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "739cd48c-1438-4311-9366-28b488f230de",
+                            TwoFactorEnabled = false,
+                            UserName = "janesmith"
                         },
                         new
                         {
-                            Id = new Guid("3f86cc51-c688-42de-aa44-d35c5db73bc4"),
+                            Id = "3f86cc51-c688-42de-aa44-d35c5db73bc4",
+                            AccessFailedCount = 0,
                             Address = "789 Loon St",
+                            ConcurrencyStamp = "8c21d17f-4d5c-4425-ab97-0173975804cf",
                             Email = "elmer.fudd@example.com",
+                            EmailConfirmed = false,
                             FirstName = "Elmer",
                             LastName = "Fudd",
-                            Password = "password3",
-                            Username = "elmerfudd"
+                            LockoutEnabled = false,
+                            PasswordHash = "password3",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "63ddf8e3-061a-44c9-a121-11f439e40dd9",
+                            TwoFactorEnabled = false,
+                            UserName = "elmerfudd"
                         });
                 });
 
@@ -257,6 +361,8 @@ namespace ProjectTwoGroup3.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserPlanID");
 
                     b.ToTable("UserDevices");
 
@@ -320,8 +426,8 @@ namespace ProjectTwoGroup3.Migrations
                     b.Property<Guid>("PlanId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -336,20 +442,195 @@ namespace ProjectTwoGroup3.Migrations
                         {
                             Id = new Guid("93e289fa-ffa4-484b-b66e-7df8078f9ed5"),
                             PlanId = new Guid("f6daf5fa-75fc-485a-8b6d-388e4132cfcc"),
-                            UserId = new Guid("25f87c58-9061-4bb7-aa3a-4a05177481d2")
+                            UserId = "25f87c58-9061-4bb7-aa3a-4a05177481d2"
                         },
                         new
                         {
                             Id = new Guid("d1e5f1d3-d768-403c-9431-564e9cbe84bf"),
                             PlanId = new Guid("23d7dc69-ff2f-42e9-92d5-20aebbb0747f"),
-                            UserId = new Guid("538091ec-802c-460d-a56e-8ce2414782b2")
+                            UserId = "538091ec-802c-460d-a56e-8ce2414782b2"
                         },
                         new
                         {
                             Id = new Guid("f512ba58-cc89-49f5-8489-367865917a8b"),
                             PlanId = new Guid("1d5cc690-684b-4dc4-b4ac-1bdf90c97839"),
-                            UserId = new Guid("3f86cc51-c688-42de-aa44-d35c5db73bc4")
+                            UserId = "3f86cc51-c688-42de-aa44-d35c5db73bc4"
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "91e941cb-a6c3-4d59-81b6-81b9ce98774e",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "5088b294-d760-47e5-9b12-07fb79bd3f4b",
+                            Name = "Professor",
+                            NormalizedName = "PROFESSOR"
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Billing", b =>
+                {
+                    b.HasOne("Entities.PhonePlan", "Plan")
+                        .WithMany()
+                        .HasForeignKey("PlanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("Entities.UserPlan", null)
+                        .WithMany("Bills")
+                        .HasForeignKey("UserPlanId");
+
+                    b.Navigation("Plan");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Entities.UserDevice", b =>
+                {
+                    b.HasOne("Entities.UserPlan", null)
+                        .WithMany("Devices")
+                        .HasForeignKey("UserPlanID");
                 });
 
             modelBuilder.Entity("Entities.UserPlan", b =>
@@ -361,14 +642,75 @@ namespace ProjectTwoGroup3.Migrations
                         .IsRequired();
 
                     b.HasOne("Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("UserPlans")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Plan");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.User", b =>
+                {
+                    b.Navigation("UserPlans");
+                });
+
+            modelBuilder.Entity("Entities.UserPlan", b =>
+                {
+                    b.Navigation("Bills");
+
+                    b.Navigation("Devices");
                 });
 #pragma warning restore 612, 618
         }
