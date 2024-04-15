@@ -1,0 +1,6 @@
+@StarTelecom_HostAddress = http://localhost:5001
+
+GET {{StarTelecom_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

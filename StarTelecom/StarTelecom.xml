@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StarTelecom</name>
+    </assembly>
+    <members>
+        <member name="M:StarTelecom.Controllers.DeviceController.GetAllDevices">
+            <summary>
+            Gets all devices in the database
+            </summary>
+            <returns>A list of all the devices</returns>
+            <response code="200">Returns a list of devices</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.DeviceController.GetDevice(System.Guid)">
+            <summary>
+            Gets a single device using the device's id
+            </summary>
+            <param name="id">GUID that identifies the device record</param>
+            <returns>A single device object</returns>
+            <response code="200">Returns the device object</response>
+            <response code="404">If the device object is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.PhonePlanController.GetPhonePlans">
+            <summary>
+            Gets all phone plans in the database
+            </summary>
+            <returns>A list of all the phone plans</returns>
+            <response code="200">Returns a list of phone plans</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.PhonePlanController.GetPhonePlan(System.Guid)">
+            <summary>
+            Gets a single phone plan using the phone plan's id
+            </summary>
+            <param name="id">GUID that identifies the phone plan record</param>
+            <returns>A single phone plan object</returns>
+            <response code="200">Returns the phone plan object</response>
+            <response code="404">If the phone plan object is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserController.GetUser(System.String)">
+            <summary>
+            Gets a single user using the user's id
+            </summary>
+            <param name="id">GUID that identifies the user record</param>
+            <returns>A single user object</returns>
+            <response code="200">Returns the user object</response>
+            <response code="404">If the user object is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserDeviceController.GetUserPlanDevices(System.String,System.Guid)">
+            <summary>
+            Gets all user devices for the specified user plan in the database
+            </summary>
+            <returns>A list of all the user devices</returns>
+            <response code="200">Returns a list of user devices</response>
+            <response code="404">If the user is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserDeviceController.GetUserDevice(System.String,System.Guid)">
+            <summary>
+            Gets a single user device using the device's id
+            </summary>
+            <param name="userId">GUID that identifies the user record</param>
+            <param name="userDeviceId">GUID that identifies the user device record</param>
+            <returns>A single user device object</returns>
+            <response code="200">Returns the device object</response>
+            <response code="404">If the device object is not found</response>
+            <response code="404">If the user is not found</response>
+            <response code="404">If the user device is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserDeviceController.AddUserDevice(System.Guid,System.Guid)">
+            <summary>
+            Adds a new user device in the database
+            </summary>
+            <param name="planId">GUID that identifies the user plan record</param>
+            <param name="deviceId">GUID that identifies the device record</param>
+            <returns>The newly registered user object</returns>
+            <response code="201">Returns the newly registered user device object</response>
+            <response code="404">If the device object is not found</response>
+            <response code="404">If the user is not found</response>
+            <response code="404">If the user device is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserDeviceController.SwapPhoneNumbers(System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Swaps the phone numbers of two user devices
+            </summary>
+            <param name="planId">GUID that identifies the user plan record</param>
+            <param name="device1Id">GUID that identifies the device record</param>
+            <param name="device2Id">GUID that identifies the device record</param>
+            <returns>Array of user devices with updated phone numbers</returns>
+            <response code="200">Array of user devices with updated phone numbers</response>
+            <response code="404">If the device object is not found</response>
+            <response code="404">If the user plan is not found</response>
+            <response code="404">If the user device is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserPlanController.GetUserPlans(System.String)">
+            <summary>
+            Gets all user devices for the specified user plan in the database
+            </summary>
+            <returns>A list of all the user plans</returns>
+            <response code="200">Returns a list of user plans</response>
+            <response code="404">If the user is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserPlanController.GetUserPlan(System.String,System.Guid)">
+            <summary>
+            Gets a single user plan using the user plan's id
+            </summary>
+            <param name="userId">GUID that identifies the user record</param>
+            <param name="userPlanId">GUID that identifies the user plan record</param>
+            <returns>A single user plan object</returns>
+            <response code="200">Returns the user plan object</response>
+            <response code="404">If the user is not found</response>
+            <response code="404">If the user plan is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserPlanController.CreateUserPlan(System.String,System.Guid)">
+            <summary>
+            Adds a new user plan in the database
+            </summary>
+            <param name="userId">GUID that identifies the user record</param>
+            <param name="planId">GUID that identifies the plan record</param>
+            <returns>The newly registered user plan object</returns>
+            <response code="201">Returns the newly registered user plan object</response>
+            <response code="404">If the user is not found</response>
+            <response code="404">If the plan is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserPlanController.DeleteUserPlan(System.String,System.Guid)">
+            <summary>
+            Deletes a single user plan and related user devices using the user plan's id
+            </summary>
+            <param name="userId">GUID that identifies the user record</param>
+            <param name="userPlanId">GUID that identifies the user plan record</param>
+            <returns>A single user plan object</returns>
+            <response code="204">Returns 204 status if successfully deleted</response>
+            <response code="404">If the user is not found</response>
+            <response code="404">If the user plan is not found</response>
+        </member>
+        <member name="T:StarTelecom.Migrations.Initial">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:StarTelecom.Migrations.AddedRefreshToken">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.AddedRefreshToken.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.AddedRefreshToken.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.AddedRefreshToken.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:StarTelecom.Migrations.StarTelecomEverything">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarTelecomEverything.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarTelecomEverything.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarTelecomEverything.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:StarTelecom.Migrations.StarTelecomDeviceUrl">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarTelecomDeviceUrl.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarTelecomDeviceUrl.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarTelecomDeviceUrl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
