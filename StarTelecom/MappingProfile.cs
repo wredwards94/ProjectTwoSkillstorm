@@ -14,6 +14,7 @@ namespace StarTelecom
             CreateMap<UserRegistrationDto, User>();
             CreateMap<User, UserResponseDto>();
             CreateMap<UserPlan, UserPlanResponseDto>();
+            CreateMap<Billing, BillingResponseDto>();
         }
     }
 }

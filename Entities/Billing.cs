@@ -32,7 +32,7 @@ namespace Entities
 
         public string? PaymentMethod { get; set; }
         
-        // public UserPlan UserPlan { get; set; }
+        public UserPlan UserPlan { get; set; }
         
         // public User? User { get; set; }
     }

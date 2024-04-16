@@ -155,5 +155,17 @@
         <member name="M:StarTelecom.Migrations.StarBilling.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:StarTelecom.Migrations.StarBillingTelecom">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarBillingTelecom.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarBillingTelecom.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.StarBillingTelecom.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

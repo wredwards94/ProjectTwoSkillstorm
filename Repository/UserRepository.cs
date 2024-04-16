@@ -18,7 +18,5 @@ namespace Repository
 
         public async Task<User> GetUser(string userId, bool trackChanges) =>
             await FindByCondition(u => u.Id.Equals(userId), trackChanges).SingleOrDefaultAsync();
-
-
     }
 }

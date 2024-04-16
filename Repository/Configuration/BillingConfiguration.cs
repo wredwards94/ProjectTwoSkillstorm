@@ -107,6 +107,39 @@ public class BillingConfiguration : IEntityTypeConfiguration<Billing>
                 DueDate = new DateTime(2024, 4, 27).Date,
                 IsPaid = false,
                 PaymentMethod = new string("ACH")
+            },
+            new Billing // 29.99
+            {
+                Id = Guid.NewGuid(),
+                UserPlanId = new Guid("d80449d6-cabf-4bae-b7b8-1888ac1caab9"),
+                UserId = new string("838cb215-63f4-4880-bc9e-f0367316183a"),
+                TotalAmount = new decimal(29.99),
+                BillingDate = new DateTime(2024, 2, 6).Date,
+                DueDate = new DateTime(2024, 2, 27).Date,
+                IsPaid = true,
+                PaymentMethod = new string("Debit card")
+            },
+            new Billing // 29.99
+            {
+                Id = Guid.NewGuid(),
+                UserPlanId = new Guid("d80449d6-cabf-4bae-b7b8-1888ac1caab9"),
+                UserId = new string("838cb215-63f4-4880-bc9e-f0367316183a"),
+                TotalAmount = new decimal(29.99),
+                BillingDate = new DateTime(2024, 3, 6).Date,
+                DueDate = new DateTime(2024, 3, 27).Date,
+                IsPaid = true,
+                PaymentMethod = new string("ACH")
+            },
+            new Billing // 29.99
+            {
+                Id = Guid.NewGuid(),
+                UserPlanId = new Guid("d80449d6-cabf-4bae-b7b8-1888ac1caab9"),
+                UserId = new string("838cb215-63f4-4880-bc9e-f0367316183a"),
+                TotalAmount = new decimal(29.99),
+                BillingDate = new DateTime(2024, 4, 6).Date,
+                DueDate = new DateTime(2024, 4, 27).Date,
+                IsPaid = true,
+                PaymentMethod = new string("ACH")
             }
         );
     }

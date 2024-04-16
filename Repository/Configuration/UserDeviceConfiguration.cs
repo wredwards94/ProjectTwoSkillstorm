@@ -68,6 +68,14 @@ namespace Repository.Configuration
                     PhoneNumber = "7712780071",
                     UserPlanId = new Guid("f512ba58-cc89-49f5-8489-367865917a8b"),
                     ActivationDate = DateTime.Parse("2024-02-14")
+                },
+                new UserDevice
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("88ca3741-b8f4-44f6-baef-059389a34907"),
+                    PhoneNumber = "5556869009",
+                    UserPlanId = new Guid("d80449d6-cabf-4bae-b7b8-1888ac1caab9"),
+                    ActivationDate = DateTime.Parse("2024-02-22")
                 }
             );
         }
