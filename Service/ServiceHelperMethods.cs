@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities;
 using Entities.Exceptions;
+using Microsoft.AspNetCore.Identity;
 
 namespace Service;
 
@@ -9,13 +10,6 @@ internal class ServiceHelperMethods
     private readonly IRepositoryManager _repositoryManager;
 
     public ServiceHelperMethods(IRepositoryManager repositoryManager) => _repositoryManager = repositoryManager;
-
-    public async Task<User> CheckUserExists(string userId, bool trackChanges)
-    {
-        var user = await _repositoryManager.User.GetUser(userId, trackChanges);
-        if (user == null) throw new UserNotFoundException(userId);
-        return user;
-    }
 
     public async Task<UserPlan> CheckUserPlanExists(Guid userPlanId, bool trackChanges)
     {

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Shared.AuthenticationDtos;
 
 namespace Service
@@ -19,35 +20,27 @@ namespace Service
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly ServiceHelperMethods _serviceHelperMethods;
+        private readonly UserManager<User> _userManager;
 
-
-        public UserService(IRepositoryManager repositoryManager, ILoggerManager logger, IMapper mapper)
+        public UserService(IRepositoryManager repositoryManager, ILoggerManager logger, IMapper mapper, UserManager<User> userManager)
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
             _mapper = mapper;
+            _userManager = userManager;
             _serviceHelperMethods = new ServiceHelperMethods(repositoryManager);
-        }
-
-        public async Task<User> CreateUser(UserRegistrationDto user)
-        {
-            var userEntity = _mapper.Map<User>(user);
-            _repositoryManager.User.CreateUser(userEntity);
-            await _repositoryManager.SaveAsync();
-            return userEntity;
         }
 
         public async Task<UserResponseDto> GetUser(string userId, bool trackChanges)
         {
-            // var user = await _repositoryManager.User.GetUser(userId, trackChanges);
-            // if (user == null) throw new UserNotFoundException(userId);
             
-            var user = await _serviceHelperMethods.CheckUserExists(userId, trackChanges);
-
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
+        
             user.UserPlans = (ICollection<UserPlan>?)await _repositoryManager.UserPlan.GetUserPlans(userId, trackChanges);
-
+        
             var userDto = _mapper.Map<UserResponseDto>(user);
-
+        
             return userDto;
         }
     }

@@ -12,13 +12,14 @@ namespace Entities
     {
         public Guid Id { get; set; }
 
-        [ForeignKey(nameof(Plan))]
-        public Guid PlanId { get; set; }
+        [ForeignKey(nameof(UserPlan))]
+        public Guid UserPlanId { get; set; }
 
         [ForeignKey(nameof(User))]
         public string? UserId { get; set; }
 
         [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal TotalAmount { get; set; }
 
         [DataType(DataType.Date)]
@@ -31,8 +32,8 @@ namespace Entities
 
         public string? PaymentMethod { get; set; }
         
-        public PhonePlan? Plan { get; set; }
+        // public UserPlan UserPlan { get; set; }
         
-        public User? User { get; set; }
+        // public User? User { get; set; }
     }
 }

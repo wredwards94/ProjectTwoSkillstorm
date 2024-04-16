@@ -1,4 +1,7 @@
-﻿namespace Contracts;
+﻿using Entities;
+using Microsoft.AspNetCore.Identity;
+
+namespace Contracts;
 
 public interface IRepositoryManager
 {
@@ -7,5 +10,6 @@ public interface IRepositoryManager
     IUserDeviceRepository UserDevice { get; }
     IUserPlanRepository UserPlan { get; }
     IUserRepository User { get; }
+    IBillingRepository Billing { get; }
     Task SaveAsync();
 }
