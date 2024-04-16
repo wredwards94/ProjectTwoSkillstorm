@@ -22,7 +22,8 @@ namespace Service
         private readonly ServiceHelperMethods _serviceHelperMethods;
 
 
-        public UserPlanService(IRepositoryManager repositoryManager, ILoggerManager logger, IMapper mapper, UserManager<User> userManager)
+        public UserPlanService(IRepositoryManager repositoryManager, ILoggerManager logger, IMapper mapper,
+            UserManager<User> userManager)
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
@@ -35,9 +36,9 @@ namespace Service
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) throw new UserNotFoundException(userId);
-            
+
             await _serviceHelperMethods.CheckPhonePlanExists(planId, trackChanges);
-            
+
             var userPlanToSave = new UserPlan
             {
                 UserId = userId,
@@ -54,14 +55,24 @@ namespace Service
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) throw new UserNotFoundException(userId);
-            
+
             var userPlan = await _serviceHelperMethods.CheckUserPlanExists(userPlanId, trackChanges);
+            userPlan.Bills = (ICollection<Billing>)await _repositoryManager.Billing.GetAllBillsByUserPlanId(userPlanId, trackChanges);
+            
+            double sum = 0;
+            foreach (var bill in userPlan.Bills)
+            {
+                if (!bill.IsPaid) sum += (double)bill.TotalAmount;
+            }
+
+            if (sum > 0) throw new NotAuthorizedException($"User has an outstanding balance of {sum}. Unpaid balances must be resolved before deactivating the plan.");
 
             userPlan.Devices = (ICollection<UserDevice>)await _repositoryManager.UserDevice.GetUserPlanDevices(userPlanId, trackChanges);
             foreach (var device in userPlan.Devices)
             {
                 _repositoryManager.UserDevice.DeleteUserDevice(device);
             }
+
             await _repositoryManager.SaveAsync();
 
             _repositoryManager.UserPlan.DeleteUserPlan(userPlan);
@@ -72,10 +83,10 @@ namespace Service
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) throw new UserNotFoundException(userId);
-            
+
             var userPlan = await _serviceHelperMethods.CheckUserPlanExists(userPlanId, trackChanges);
 
-            //userPlan.Plan = await _repositoryManager.PhonePlan.GetPhonePlan(userPlan.PlanId, trackChanges);
+            userPlan.Plan = await _repositoryManager.PhonePlan.GetPhonePlan(userPlan.PlanId, trackChanges);
 
             var userPlanResponse = _mapper.Map<UserPlanResponseDto>(userPlan);
 
@@ -87,8 +98,12 @@ namespace Service
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) throw new UserNotFoundException(userId);
-            
+
             var userPlans = await _repositoryManager.UserPlan.GetUserPlans(userId, trackChanges);
+            foreach (var userPlan in userPlans)
+            {
+                userPlan.Plan = await _repositoryManager.PhonePlan.GetPhonePlan(userPlan.PlanId, trackChanges);
+            }
 
             var userPlansResponse = _mapper.Map<IEnumerable<UserPlanResponseDto>>(userPlans);
             return userPlansResponse;

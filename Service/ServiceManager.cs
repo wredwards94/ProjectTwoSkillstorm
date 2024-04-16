@@ -26,8 +26,8 @@ public class ServiceManager : IServiceManager
         _userPlanService = new Lazy<IUserPlanService>(() => new UserPlanService(repositoryManager, logger, mapper, userManager));
         _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, logger, mapper, userManager));
         _authenticationService =
-            new Lazy<IAuthenticationService>(() => new AuthenticationService(userManager, configuration));
-        _billingService = new Lazy<IBillingService>(() => new BillingService(repositoryManager, logger, mapper));
+            new Lazy<IAuthenticationService>(() => new AuthenticationService(userManager, configuration, logger));
+        _billingService = new Lazy<IBillingService>(() => new BillingService(repositoryManager, logger, mapper, userManager));
     }
 
     public IDeviceService Device => _deviceService.Value;

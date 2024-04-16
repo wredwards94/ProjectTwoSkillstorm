@@ -24,12 +24,12 @@ public class AuthenticationService : IAuthenticationService
     private readonly ILoggerManager _logger;
     private User? _user;
 
-    public AuthenticationService(UserManager<User> userManager, IOptions<JwtConfiguration> config)
+    public AuthenticationService(UserManager<User> userManager, IOptions<JwtConfiguration> config, ILoggerManager logger)
     {
-        _userManager = userManager;
         _userManager = userManager;
         _configuration = config;
         _jwtConfiguration = config.Value;
+        _logger = logger;
     }
 
 
@@ -120,7 +120,7 @@ public class AuthenticationService : IAuthenticationService
                 issuer: _jwtConfiguration.ValidIssuer,
                 audience: _jwtConfiguration.ValidAudience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(Convert.ToDouble(_jwtConfiguration.Expires)),
+                expires: DateTime.Now.AddDays(Convert.ToDouble(_jwtConfiguration.Expires)),
                 signingCredentials: signingCredentials
             );
 

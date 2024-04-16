@@ -18,8 +18,7 @@ namespace Service
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerManager _logger;
-        private readonly IMapper _mapper;
-        private readonly ServiceHelperMethods _serviceHelperMethods;
+        private readonly IMapper _mapper; 
         private readonly UserManager<User> _userManager;
 
         public UserService(IRepositoryManager repositoryManager, ILoggerManager logger, IMapper mapper, UserManager<User> userManager)
@@ -28,7 +27,6 @@ namespace Service
             _logger = logger;
             _mapper = mapper;
             _userManager = userManager;
-            _serviceHelperMethods = new ServiceHelperMethods(repositoryManager);
         }
 
         public async Task<UserResponseDto> GetUser(string userId, bool trackChanges)

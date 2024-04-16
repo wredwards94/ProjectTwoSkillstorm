@@ -12,5 +12,6 @@ namespace Shared.ResponseDtos
         public Guid Id { get; init; }
         public Guid PlanId { get; init; }
         public string? UserId { get; init; }
+        public PhonePlanResponseDto Plan { get; init; }
     }
 }
