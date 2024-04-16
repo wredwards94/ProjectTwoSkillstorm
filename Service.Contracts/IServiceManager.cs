@@ -7,5 +7,6 @@ public interface IServiceManager
     IUserDeviceService UserDevice { get; }
     IUserService User { get; }
     IUserPlanService UserPlan { get; }
+    IBillingService Billing { get; }
     IAuthenticationService Authentication { get; }
 }

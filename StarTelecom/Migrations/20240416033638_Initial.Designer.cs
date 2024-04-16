@@ -12,8 +12,8 @@ using Repository;
 namespace StarTelecom.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240414045632_StarTelecomEverything")]
-    partial class StarTelecomEverything
+    [Migration("20240416033638_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,23 +43,16 @@ namespace StarTelecom.Migrations
                     b.Property<string>("PaymentMethod")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("PlanId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("UserPlanId")
+                    b.Property<Guid>("UserPlanId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PlanId");
-
-                    b.HasIndex("UserId");
 
                     b.HasIndex("UserPlanId");
 
@@ -82,10 +75,10 @@ namespace StarTelecom.Migrations
                     b.Property<string>("Model")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Storage")
+                    b.Property<string>("PictureUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("pictureUrl")
+                    b.Property<string>("Storage")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -99,14 +92,16 @@ namespace StarTelecom.Migrations
                             Color = "Black",
                             Manufacturer = "Apple",
                             Model = "iPhone 15 Plus",
+                            PictureUrl = "https://ss7.vzw.com/is/image/VerizonWireless/apple-iphone-15-plus-128gb-black-mtxr3ll-a-a?wid=930&hei=930&fmt=webp",
                             Storage = "64GB"
                         },
                         new
                         {
                             Id = new Guid("7b483b60-90e2-4c89-836c-4ad8946b8aa7"),
-                            Color = "Grey",
+                            Color = "Titanium Grey",
                             Manufacturer = "Samsung",
                             Model = "Galaxy S24 Ultra",
+                            PictureUrl = "https://ss7.vzw.com/is/image/VerizonWireless/samsung-eureka-e3-titaniumgray?wid=930&hei=930&fmt=webp",
                             Storage = "128GB"
                         },
                         new
@@ -115,38 +110,43 @@ namespace StarTelecom.Migrations
                             Color = "Blue",
                             Manufacturer = "Apple",
                             Model = "iPhone 15",
+                            PictureUrl = "https://ss7.vzw.com/is/image/VerizonWireless/apple-iphone-15-128gb-blue-prepaid-mtpm3ll-a-a?wid=930&hei=930&fmt=webp",
                             Storage = "256GB"
                         },
                         new
                         {
                             Id = new Guid("97a612e4-13d6-43c0-805b-30fafa1ae05a"),
-                            Color = "Mint Blue",
+                            Color = "Bay",
                             Manufacturer = "Google",
                             Model = "Pixel 8 Pro",
+                            PictureUrl = "https://ss7.vzw.com/is/image/VerizonWireless/google-husky-bay-2023?wid=930&hei=930&fmt=webp",
                             Storage = "128GB"
                         },
                         new
                         {
                             Id = new Guid("4f05e337-e657-4848-9efe-8b291bf18f1f"),
-                            Color = "Violet",
+                            Color = "Lemongrass",
                             Manufacturer = "Google",
                             Model = "Pixel 7",
+                            PictureUrl = "https://ss7.vzw.com/is/image/VerizonWireless/google-pixel-7-lemongrass-128-gb-ga03543-us?wid=930&hei=930&fmt=webp",
                             Storage = "256GB"
                         },
                         new
                         {
                             Id = new Guid("88ca3741-b8f4-44f6-baef-059389a34907"),
-                            Color = "White",
+                            Color = "Starlight",
                             Manufacturer = "Apple",
                             Model = "iPhone 13",
+                            PictureUrl = "https://ss7.vzw.com/is/image/VerizonWireless/apple-iphone-13-starlight-09142021?wid=930&hei=930&fmt=webp",
                             Storage = "64GB"
                         },
                         new
                         {
                             Id = new Guid("6488bdee-e52c-442a-b754-8a8f6c0e5ce0"),
-                            Color = "Red",
+                            Color = "Magenta",
                             Manufacturer = "Motorola",
                             Model = "Razr Plus",
+                            PictureUrl = "https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/Motorola/Motorola-razr-Plus-2023/Viva-Magenta/Motorola-razr-Plus-2023-Viva-Magenta-frontimage.png",
                             Storage = "128GB"
                         },
                         new
@@ -155,6 +155,7 @@ namespace StarTelecom.Migrations
                             Color = "Blue",
                             Manufacturer = "Samsung",
                             Model = "iPhone 15 Plus",
+                            PictureUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6525/6525390_sd.jpg;maxHeight=640;maxWidth=550",
                             Storage = "128GB"
                         },
                         new
@@ -163,6 +164,7 @@ namespace StarTelecom.Migrations
                             Color = "Blue",
                             Manufacturer = "Apple",
                             Model = "iPhone 12",
+                            PictureUrl = "https://ss7.vzw.com/is/image/VerizonWireless/apple-iphone-12-blue-10132020?wid=930&hei=930&fmt=webp",
                             Storage = "128GB"
                         },
                         new
@@ -171,6 +173,7 @@ namespace StarTelecom.Migrations
                             Color = "Purple",
                             Manufacturer = "Samsung",
                             Model = "Galaxy S21+",
+                            PictureUrl = "https://www.backmarket.com/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D640/https://d2e6ccujb3mkqf.cloudfront.net/375691a8-f3d2-40ab-9bb8-7a187fa42f13-1_3230d8e7-e02d-4da1-bf4b-b3d2d1c889b9.jpg",
                             Storage = "512GB"
                         });
                 });
@@ -306,7 +309,7 @@ namespace StarTelecom.Migrations
                             Id = "25f87c58-9061-4bb7-aa3a-4a05177481d2",
                             AccessFailedCount = 0,
                             Address = "123 Main St",
-                            ConcurrencyStamp = "114759f3-465b-45db-9f5f-d823b97bb6e4",
+                            ConcurrencyStamp = "8d909e99-6048-4c7f-b6a3-94935a9b55f9",
                             Email = "john.doe@example.com",
                             EmailConfirmed = false,
                             FirstName = "John",
@@ -315,7 +318,7 @@ namespace StarTelecom.Migrations
                             PasswordHash = "password1",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "dc72e2e4-2be0-4288-b510-4bb3635d9999",
+                            SecurityStamp = "f8b513fc-fe70-4361-a30a-21e511be3902",
                             TwoFactorEnabled = false,
                             UserName = "johndoe"
                         },
@@ -324,7 +327,7 @@ namespace StarTelecom.Migrations
                             Id = "538091ec-802c-460d-a56e-8ce2414782b2",
                             AccessFailedCount = 0,
                             Address = "456 Elm St",
-                            ConcurrencyStamp = "8c4566c0-291e-4507-a05c-a851415fc819",
+                            ConcurrencyStamp = "30bcc623-a3cc-4b5d-995e-7a9a2bea42da",
                             Email = "jane.smith@example.com",
                             EmailConfirmed = false,
                             FirstName = "Jane",
@@ -333,7 +336,7 @@ namespace StarTelecom.Migrations
                             PasswordHash = "password2",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "bf8b5681-8b30-4f1f-956e-e19bd873e053",
+                            SecurityStamp = "56fcd3cd-4460-494f-b812-f22364fc0b72",
                             TwoFactorEnabled = false,
                             UserName = "janesmith"
                         },
@@ -342,7 +345,7 @@ namespace StarTelecom.Migrations
                             Id = "3f86cc51-c688-42de-aa44-d35c5db73bc4",
                             AccessFailedCount = 0,
                             Address = "789 Loon St",
-                            ConcurrencyStamp = "62f514cd-5704-4108-a2b2-043624a40dd6",
+                            ConcurrencyStamp = "7c915618-fb06-4dde-ac5a-4e7f6cf0b2df",
                             Email = "elmer.fudd@example.com",
                             EmailConfirmed = false,
                             FirstName = "Elmer",
@@ -351,7 +354,7 @@ namespace StarTelecom.Migrations
                             PasswordHash = "password3",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "3dbb7a29-75bf-46b0-b88a-f9122b47377f",
+                            SecurityStamp = "4f9cb157-c972-40ea-b130-98ae79ca43f4",
                             TwoFactorEnabled = false,
                             UserName = "elmerfudd"
                         });
@@ -502,7 +505,7 @@ namespace StarTelecom.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "265358de-a180-4ec6-b9ab-d55cd91a36c3",
+                            Id = "2f36135b-36cd-4874-9ee2-a34f4355d157",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -616,23 +619,11 @@ namespace StarTelecom.Migrations
 
             modelBuilder.Entity("Entities.Billing", b =>
                 {
-                    b.HasOne("Entities.PhonePlan", "Plan")
-                        .WithMany()
-                        .HasForeignKey("PlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
                     b.HasOne("Entities.UserPlan", null)
                         .WithMany("Bills")
-                        .HasForeignKey("UserPlanId");
-
-                    b.Navigation("Plan");
-
-                    b.Navigation("User");
+                        .HasForeignKey("UserPlanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.UserDevice", b =>

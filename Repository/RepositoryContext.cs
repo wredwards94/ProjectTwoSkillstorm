@@ -17,6 +17,7 @@ public class RepositoryContext : IdentityDbContext<User>
     public DbSet<User> Users { get; set; }
     public DbSet<UserDevice> UserDevices { get; set; }
     public DbSet<UserPlan> UserPlans { get; set; }
+    public DbSet<Billing> Billing { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -27,5 +28,6 @@ public class RepositoryContext : IdentityDbContext<User>
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new UserDeviceConfiguration());
         modelBuilder.ApplyConfiguration(new UserPlanConfiguration());
+        modelBuilder.ApplyConfiguration(new BillingConfiguration());
     }
 }

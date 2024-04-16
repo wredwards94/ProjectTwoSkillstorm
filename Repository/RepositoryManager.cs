@@ -1,4 +1,6 @@
 ﻿using Contracts;
+using Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace Repository;
 
@@ -10,6 +12,7 @@ public class RepositoryManager : IRepositoryManager
     private readonly Lazy<IUserDeviceRepository> _userDeviceRepository;
     private readonly Lazy<IUserPlanRepository> _userPlanRepository;
     private readonly Lazy<IUserRepository> _userRepository;
+    private readonly Lazy<IBillingRepository> _billingRepository;
 
     public RepositoryManager(RepositoryContext repositoryContext)
     {
@@ -19,6 +22,7 @@ public class RepositoryManager : IRepositoryManager
         _phonePlanRepository = new Lazy<IPhonePlanRepository>(() => new PhonePlanRepository(_repositoryContext));
         _userDeviceRepository = new Lazy<IUserDeviceRepository>(() => new UserDeviceRepository(_repositoryContext));
         _userPlanRepository = new Lazy<IUserPlanRepository>(() => new UserPlanRepository(_repositoryContext));
+        _billingRepository = new Lazy<IBillingRepository>(() => new BillingRepository(_repositoryContext));
     }
     
     public IDeviceRepository Device => _deviceRepository.Value;
@@ -26,5 +30,6 @@ public class RepositoryManager : IRepositoryManager
     public IUserRepository User => _userRepository.Value;
     public IUserDeviceRepository UserDevice => _userDeviceRepository.Value;
     public IUserPlanRepository UserPlan => _userPlanRepository.Value;
+    public IBillingRepository Billing => _billingRepository.Value;
     public async Task SaveAsync() => await _repositoryContext.SaveChangesAsync();
 }

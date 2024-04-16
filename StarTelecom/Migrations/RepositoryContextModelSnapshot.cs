@@ -40,27 +40,121 @@ namespace StarTelecom.Migrations
                     b.Property<string>("PaymentMethod")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("PlanId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("UserPlanId")
+                    b.Property<Guid>("UserPlanId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PlanId");
-
-                    b.HasIndex("UserId");
-
                     b.HasIndex("UserPlanId");
 
                     b.ToTable("Billing");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("30ba3b0b-1537-451c-b10f-3e5f7994a110"),
+                            BillingDate = new DateTime(2024, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = true,
+                            PaymentMethod = "Credit Card",
+                            TotalAmount = 29.99m,
+                            UserId = "25f87c58-9061-4bb7-aa3a-4a05177481d2",
+                            UserPlanId = new Guid("93e289fa-ffa4-484b-b66e-7df8078f9ed5")
+                        },
+                        new
+                        {
+                            Id = new Guid("03a46987-ca2d-4db5-afac-b75e55e26e8d"),
+                            BillingDate = new DateTime(2024, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = true,
+                            PaymentMethod = "Credit Card",
+                            TotalAmount = 29.99m,
+                            UserId = "25f87c58-9061-4bb7-aa3a-4a05177481d2",
+                            UserPlanId = new Guid("93e289fa-ffa4-484b-b66e-7df8078f9ed5")
+                        },
+                        new
+                        {
+                            Id = new Guid("04d98fe7-3a15-4d6d-b6b9-f0365347137d"),
+                            BillingDate = new DateTime(2024, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = false,
+                            PaymentMethod = "Credit Card",
+                            TotalAmount = 29.99m,
+                            UserId = "25f87c58-9061-4bb7-aa3a-4a05177481d2",
+                            UserPlanId = new Guid("93e289fa-ffa4-484b-b66e-7df8078f9ed5")
+                        },
+                        new
+                        {
+                            Id = new Guid("9f66c87a-f25f-45c9-a1c3-fa76d6c47fba"),
+                            BillingDate = new DateTime(2024, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = true,
+                            PaymentMethod = "ACH",
+                            TotalAmount = 69.99m,
+                            UserId = "538091ec-802c-460d-a56e-8ce2414782b2",
+                            UserPlanId = new Guid("d1e5f1d3-d768-403c-9431-564e9cbe84bf")
+                        },
+                        new
+                        {
+                            Id = new Guid("1964f20f-317d-4d55-8b3b-a6e4b381da50"),
+                            BillingDate = new DateTime(2024, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = true,
+                            PaymentMethod = "Credit Card",
+                            TotalAmount = 69.99m,
+                            UserId = "538091ec-802c-460d-a56e-8ce2414782b2",
+                            UserPlanId = new Guid("d1e5f1d3-d768-403c-9431-564e9cbe84bf")
+                        },
+                        new
+                        {
+                            Id = new Guid("e8fb2631-73a3-4ed2-8f7e-03a3664282a1"),
+                            BillingDate = new DateTime(2024, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = true,
+                            PaymentMethod = "Debit Card",
+                            TotalAmount = 69.99m,
+                            UserId = "538091ec-802c-460d-a56e-8ce2414782b2",
+                            UserPlanId = new Guid("d1e5f1d3-d768-403c-9431-564e9cbe84bf")
+                        },
+                        new
+                        {
+                            Id = new Guid("e922d604-93d2-4fad-a704-d5ac633419ab"),
+                            BillingDate = new DateTime(2024, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = true,
+                            PaymentMethod = "ACH",
+                            TotalAmount = 99.99m,
+                            UserId = "3f86cc51-c688-42de-aa44-d35c5db73bc4",
+                            UserPlanId = new Guid("f512ba58-cc89-49f5-8489-367865917a8b")
+                        },
+                        new
+                        {
+                            Id = new Guid("950c69a3-4078-488a-b557-5d6c51f41ffa"),
+                            BillingDate = new DateTime(2024, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = true,
+                            PaymentMethod = "ACH",
+                            TotalAmount = 99.99m,
+                            UserId = "3f86cc51-c688-42de-aa44-d35c5db73bc4",
+                            UserPlanId = new Guid("f512ba58-cc89-49f5-8489-367865917a8b")
+                        },
+                        new
+                        {
+                            Id = new Guid("9f1ddd83-4a01-4285-86d0-2f6faaa903dd"),
+                            BillingDate = new DateTime(2024, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2024, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPaid = false,
+                            PaymentMethod = "ACH",
+                            TotalAmount = 99.99m,
+                            UserId = "3f86cc51-c688-42de-aa44-d35c5db73bc4",
+                            UserPlanId = new Guid("f512ba58-cc89-49f5-8489-367865917a8b")
+                        });
                 });
 
             modelBuilder.Entity("Entities.Device", b =>
@@ -313,7 +407,7 @@ namespace StarTelecom.Migrations
                             Id = "25f87c58-9061-4bb7-aa3a-4a05177481d2",
                             AccessFailedCount = 0,
                             Address = "123 Main St",
-                            ConcurrencyStamp = "cac24d06-ff6a-4365-9dd6-077f39178234",
+                            ConcurrencyStamp = "5d8036d6-9ed8-4bf9-ab8e-e2c9de605930",
                             Email = "john.doe@example.com",
                             EmailConfirmed = false,
                             FirstName = "John",
@@ -322,7 +416,7 @@ namespace StarTelecom.Migrations
                             PasswordHash = "password1",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "a67484c0-0aef-4dd5-a7bc-d5800773a3ae",
+                            SecurityStamp = "a9dffaa0-ac0a-4efe-ac81-c83597dddae6",
                             TwoFactorEnabled = false,
                             UserName = "johndoe"
                         },
@@ -331,7 +425,7 @@ namespace StarTelecom.Migrations
                             Id = "538091ec-802c-460d-a56e-8ce2414782b2",
                             AccessFailedCount = 0,
                             Address = "456 Elm St",
-                            ConcurrencyStamp = "b7eb8028-2808-486a-aa8b-d18ebf2a49c9",
+                            ConcurrencyStamp = "e0a96ba5-8ad6-4e29-927c-1931347de2a7",
                             Email = "jane.smith@example.com",
                             EmailConfirmed = false,
                             FirstName = "Jane",
@@ -340,7 +434,7 @@ namespace StarTelecom.Migrations
                             PasswordHash = "password2",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "a5237076-3295-46bd-a010-6faad4b49943",
+                            SecurityStamp = "bf66dbc5-9106-468d-8e9e-3f218c527617",
                             TwoFactorEnabled = false,
                             UserName = "janesmith"
                         },
@@ -349,7 +443,7 @@ namespace StarTelecom.Migrations
                             Id = "3f86cc51-c688-42de-aa44-d35c5db73bc4",
                             AccessFailedCount = 0,
                             Address = "789 Loon St",
-                            ConcurrencyStamp = "90a33848-c183-4e0a-a1b7-6e3d5d3fc4e4",
+                            ConcurrencyStamp = "8aa6a54b-a5dd-4c0d-8c66-1cde3a63ece0",
                             Email = "elmer.fudd@example.com",
                             EmailConfirmed = false,
                             FirstName = "Elmer",
@@ -358,7 +452,7 @@ namespace StarTelecom.Migrations
                             PasswordHash = "password3",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "212a9ed5-9846-4a52-ad21-21b350a82362",
+                            SecurityStamp = "160e501d-3d04-4a2b-8079-9639642e7834",
                             TwoFactorEnabled = false,
                             UserName = "elmerfudd"
                         });
@@ -509,7 +603,7 @@ namespace StarTelecom.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4e864be8-be64-41de-8af8-6d4587b37726",
+                            Id = "bcd74094-922c-482d-a170-ce1fe37ce19e",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -623,23 +717,11 @@ namespace StarTelecom.Migrations
 
             modelBuilder.Entity("Entities.Billing", b =>
                 {
-                    b.HasOne("Entities.PhonePlan", "Plan")
-                        .WithMany()
-                        .HasForeignKey("PlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
                     b.HasOne("Entities.UserPlan", null)
                         .WithMany("Bills")
-                        .HasForeignKey("UserPlanId");
-
-                    b.Navigation("Plan");
-
-                    b.Navigation("User");
+                        .HasForeignKey("UserPlanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.UserDevice", b =>

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Service
 {
@@ -17,27 +18,25 @@ namespace Service
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
         private readonly ServiceHelperMethods _serviceHelperMethods;
 
 
-        public UserPlanService(IRepositoryManager repositoryManager, ILoggerManager logger, IMapper mapper)
+        public UserPlanService(IRepositoryManager repositoryManager, ILoggerManager logger, IMapper mapper, UserManager<User> userManager)
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
             _mapper = mapper;
+            _userManager = userManager;
             _serviceHelperMethods = new ServiceHelperMethods(repositoryManager);
         }
 
         public async Task<UserPlan> CreateUserPlan(string userId, Guid planId, bool trackChanges)
         {
-            // var plan = await _repositoryManager.PhonePlan.GetPhonePlan(planId, trackChanges);
-            // if (plan == null) throw new PhonePlanNotFoundException(planId);
-            //
-            // var user = await _repositoryManager.User.GetUser(userId, trackChanges);
-            // if (user == null) throw new UserNotFoundException(userId);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
             
             await _serviceHelperMethods.CheckPhonePlanExists(planId, trackChanges);
-            await _serviceHelperMethods.CheckUserExists(userId, trackChanges);
             
             var userPlanToSave = new UserPlan
             {
@@ -53,13 +52,9 @@ namespace Service
 
         public async Task DeleteUserPlan(string userId, Guid userPlanId, bool trackChanges)
         {
-            // var user = await _repositoryManager.User.GetUser(userId, trackChanges);
-            // if (user == null) throw new UserNotFoundException(userId);
-            //
-            // var userPlan = await _repositoryManager.UserPlan.GetUserPlanById(userPlanId, trackChanges);
-            // if (userPlan == null) throw new UserPlanNotFoundException(userPlanId);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
             
-            await _serviceHelperMethods.CheckUserExists(userId, trackChanges);
             var userPlan = await _serviceHelperMethods.CheckUserPlanExists(userPlanId, trackChanges);
 
             userPlan.Devices = (ICollection<UserDevice>)await _repositoryManager.UserDevice.GetUserPlanDevices(userPlanId, trackChanges);
@@ -75,13 +70,9 @@ namespace Service
 
         public async Task<UserPlanResponseDto> GetUserPlan(string userId, Guid userPlanId, bool trackChanges)
         {
-            // var user = await _repositoryManager.User.GetUser(userId, trackChanges);
-            // if (user == null) throw new UserNotFoundException(userId);
-            //
-            // var userPlan = await _repositoryManager.UserPlan.GetUserPlanById(userPlanId, trackChanges);
-            // if (userPlan == null) throw new UserPlanNotFoundException(userPlanId);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
             
-            await _serviceHelperMethods.CheckUserExists(userId, trackChanges);
             var userPlan = await _serviceHelperMethods.CheckUserPlanExists(userPlanId, trackChanges);
 
             //userPlan.Plan = await _repositoryManager.PhonePlan.GetPhonePlan(userPlan.PlanId, trackChanges);
@@ -94,10 +85,8 @@ namespace Service
 
         public async Task<IEnumerable<UserPlanResponseDto>> GetUserPlans(string userId, bool trackChanges)
         {
-            // var user = await _repositoryManager.User.GetUser(userId, trackChanges);
-            // if (user == null) throw new UserNotFoundException(userId);
-            
-            await _serviceHelperMethods.CheckUserExists(userId, trackChanges);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
             
             var userPlans = await _repositoryManager.UserPlan.GetUserPlans(userId, trackChanges);
 

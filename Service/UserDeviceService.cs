@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Service
 {
@@ -16,23 +17,18 @@ namespace Service
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerManager _logger;
         private readonly ServiceHelperMethods _serviceHelperMethods;
+        private readonly UserManager<User> _userManager;
 
-
-        public UserDeviceService(IRepositoryManager repositoryManager, ILoggerManager logger)
+        public UserDeviceService(IRepositoryManager repositoryManager, ILoggerManager logger, UserManager<User> userManager)
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
+            _userManager = userManager;
             _serviceHelperMethods = new ServiceHelperMethods(repositoryManager);
         }
 
         public async Task<UserDevice> AddUserDevice(Guid planId, Guid deviceId, bool trackChanges)
         {
-            // var userPlan = await _repositoryManager.UserPlan.GetUserPlanById(planId, trackChanges);
-            // if (userPlan == null) throw new UserPlanNotFoundException(planId);
-            //
-            // var device = await _repositoryManager.Device.GetDevice(deviceId, trackChanges);
-            // if (device == null) throw new DeviceNotFoundException(deviceId);
-            
             var userPlan = await _serviceHelperMethods.CheckUserPlanExists(planId, trackChanges);
             await _serviceHelperMethods.CheckDeviceExists(deviceId, trackChanges);
 
@@ -73,13 +69,9 @@ namespace Service
 
         public async Task<UserDevice> GetUserDevice(string userId, Guid userDeviceId, bool trackChanges)
         {
-            // var user = await _repositoryManager.User.GetUser(userId, trackChanges);
-            // if (user == null) throw new UserNotFoundException(userId);
-            //
-            // var userDevice = await _repositoryManager.UserDevice.GetUserDevice(userDeviceId, trackChanges);
-            // if (userDevice == null) throw new UserDeviceNotFoundException(userDeviceId);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
             
-            await _serviceHelperMethods.CheckUserExists(userId, trackChanges);
             var userDevice = await _serviceHelperMethods.CheckUserDeviceExists(userDeviceId, trackChanges);
             
             return userDevice;
@@ -87,10 +79,8 @@ namespace Service
 
         public async Task<IEnumerable<UserDevice>> GetUserPlanDevices(string userId, Guid userPlanId, bool trackChanges)
         {
-            // var user = await _repositoryManager.User.GetUser(userId, trackChanges);
-            // if (user == null) throw new UserNotFoundException(userId);
-            
-            await _serviceHelperMethods.CheckUserExists(userId, trackChanges);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
             
             var userDevices = await _repositoryManager.UserDevice.GetUserPlanDevices(userPlanId, trackChanges);
             return userDevices;

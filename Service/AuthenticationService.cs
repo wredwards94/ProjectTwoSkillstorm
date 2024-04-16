@@ -2,13 +2,16 @@
 using System.Security.Cryptography;
 using System.Text;
 using Entities;
+using Entities.Exceptions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Service.Contracts;
 using Shared;
 using System.IdentityModel.Tokens.Jwt;
+using Contracts;
 using Entities.Exceptions;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic;
 using Shared.AuthenticationDtos;
 
 namespace Service;
@@ -18,6 +21,7 @@ public class AuthenticationService : IAuthenticationService
     private readonly UserManager<User> _userManager;
     private readonly IOptions<JwtConfiguration> _configuration;
     private readonly JwtConfiguration _jwtConfiguration;
+    private readonly ILoggerManager _logger;
     private User? _user;
 
     public AuthenticationService(UserManager<User> userManager, IOptions<JwtConfiguration> config)
@@ -31,8 +35,13 @@ public class AuthenticationService : IAuthenticationService
 
     public async Task<IdentityResult> RegisterUser(UserRegistrationDto userForRegistration)
     {
+        var user = await _userManager.FindByNameAsync(userForRegistration.UserName);
+        if (user != null) throw new AlreadyExistsException("User with this username already exists.");
         
-        var user = new User
+        user = await _userManager.FindByEmailAsync(userForRegistration.Email);
+        if (user != null) throw new AlreadyExistsException("User with this email already exists.");
+        
+        user = new User
         {
             UserName = userForRegistration.UserName,
             Email = userForRegistration.Email,
@@ -52,8 +61,8 @@ public class AuthenticationService : IAuthenticationService
     {
         _user = await _userManager.FindByNameAsync(userForAuthentication.UserName);
         var result = _user != null && await _userManager.CheckPasswordAsync(_user, userForAuthentication.Password);
-        // if (!result)
-        //     _logger.LogWarn($"{nameof(ValidateUser)}: Authentication failed. Wrong username or password.");
+        
+        if (!result) _logger.LogWarn($"{nameof(ValidateUser)}: Authentication failed. Wrong username or password.");
 
         return result;
     }
@@ -78,24 +87,6 @@ public class AuthenticationService : IAuthenticationService
 
         return new TokenDto(_user.Id, accessToken, refreshToken);
     }
-
-    // public async Task<TokenDto> RefreshToken(TokenDto tokenDto)
-    // {
-    //     var principal = GetPrincipalFromExpiredToken(tokenDto.AccessToken);
-    //     var user = await _userManager.FindByNameAsync(principal.Identity.Name);
-    //     if (user == null || user.RefreshToken != tokenDto.RefreshToken
-    //                      || user.RefreshTokenExpiryTime <= DateTime.Now)
-    //         throw new RefreshTokenBadRequest();
-    //
-    //     // _user = user;
-    //     var userAuthDto = new UserAuthenticationDto
-    //     {
-    //         UserName = user.UserName,
-    //         Password = user.PasswordHash
-    //     };
-    //     
-    //     return await CreateToken(populateExp: false);
-    // }
     
     private SigningCredentials GetSigningCredentials()
         {

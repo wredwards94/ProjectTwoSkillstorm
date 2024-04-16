@@ -143,40 +143,16 @@
         <member name="M:StarTelecom.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="T:StarTelecom.Migrations.AddedRefreshToken">
+        <member name="T:StarTelecom.Migrations.StarBilling">
             <inheritdoc />
         </member>
-        <member name="M:StarTelecom.Migrations.AddedRefreshToken.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:StarTelecom.Migrations.StarBilling.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:StarTelecom.Migrations.AddedRefreshToken.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:StarTelecom.Migrations.StarBilling.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:StarTelecom.Migrations.AddedRefreshToken.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:StarTelecom.Migrations.StarTelecomEverything">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.StarTelecomEverything.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.StarTelecomEverything.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.StarTelecomEverything.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:StarTelecom.Migrations.StarTelecomDeviceUrl">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.StarTelecomDeviceUrl.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.StarTelecomDeviceUrl.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.StarTelecomDeviceUrl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:StarTelecom.Migrations.StarBilling.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
