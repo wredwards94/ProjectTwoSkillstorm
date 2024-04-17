@@ -10,4 +10,6 @@ public record BillingResponseDto
     public DateTime DueDate { get; init; }
     public bool IsPaid { get; init; }
     public string? PaymentMethod { get; init; }
+    public PhonePlanResponseDto PlanDetails { get; init; }
+    // public UserPlanBillResponseDto UserPlan { get; init; }
 }

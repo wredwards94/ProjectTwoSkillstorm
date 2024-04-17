@@ -6,7 +6,7 @@ using Shared.ResponseDtos;
 namespace StarTelecom.Controllers;
 
 [ApiController]
-[Route("user/{userId}/[controller]/{userPlanId:guid}")]
+[Route("user/{userId}/[controller]")]
 [Produces("application/json")]
 [Authorize]
 public class BillingController : ControllerBase
@@ -23,7 +23,7 @@ public class BillingController : ControllerBase
     /// <returns>An array of bill objects for the specified user plan</returns>
     /// <response code="200">Array of user plan bill objects</response>
     /// <response code="404">If the user is not found</response>
-    [HttpGet]
+    [HttpGet("plan/{userPlanId:guid}")]
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
     public async Task<IEnumerable<BillingResponseDto>> GetUserPlanBills(string userId, Guid userPlanId) => 
@@ -43,4 +43,9 @@ public class BillingController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<BillingResponseDto> GetBillById(string userId, Guid userPlanId, Guid billId) => 
         await _service.Billing.GetUserPlanBillById(userId, userPlanId, billId, trackChanges: false);
+
+    [HttpGet]
+    [ProducesResponseType(200)]
+    public async Task<IEnumerable<BillingResponseDto>> GetAllBillsForUser(string userId) => 
+        await _service.Billing.GetAllBillsForUser(userId, trackChanges: false);
 }

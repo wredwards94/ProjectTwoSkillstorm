@@ -11,6 +11,7 @@ namespace Contracts
     {
         Task<IEnumerable<Billing>> GetAllBillsByUserPlanId(Guid userPlanId, bool trackChanges);
         Task<Billing> GetBillById(Guid billId, bool trackChanges);
+        Task<IEnumerable<Billing>> GetBillsByUserIdPaidFalse(string userId);
         Task<IEnumerable<Billing>> GetBillsByUserId(string userId);
         void DeleteUserPlanBill(Billing bill);
     }

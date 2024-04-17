@@ -14,7 +14,11 @@ namespace StarTelecom
             CreateMap<UserRegistrationDto, User>();
             CreateMap<User, UserResponseDto>();
             CreateMap<UserPlan, UserPlanResponseDto>();
-            CreateMap<Billing, BillingResponseDto>();
+            CreateMap<Billing, BillingResponseDto>()
+                .ForMember(b => b.PlanDetails,
+                    opt =>
+                        opt.MapFrom(b => b.UserPlan.Plan));
+            CreateMap<UserPlan, UserPlanBillResponseDto>();
             CreateMap<UserDevice, UserDeviceResponseDto>();
         }
     }
