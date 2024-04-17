@@ -1,3 +1,3 @@
 ﻿namespace Shared.CreationDtos;
 
-public record DeviceToAddDto(Guid DeviceId, Guid UserPlanId);
+public record DeviceToAddDto(Guid DeviceId, Guid UserPlanId, string UserId);
