@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
+using Shared.CreationDtos;
+using Shared.UpdateDtos;
 
 namespace StarTelecom.Controllers
 {
@@ -46,18 +48,23 @@ namespace StarTelecom.Controllers
         /// Adds a new user device in the database
         /// </summary>
         /// <param name="planId">GUID that identifies the user plan record</param>
-        /// <param name="deviceId">GUID that identifies the device record</param>
-        /// <returns>The newly registered user object</returns>
+        /// <param name="deviceToAdd">A user device object containing user plan id and device id</param>
+        /// <returns>The newly registered user device object</returns>
         /// <response code="201">Returns the newly registered user device object</response>
         /// <response code="404">If the device object is not found</response>
-        /// <response code="404">If the user is not found</response>
         /// <response code="404">If the user device is not found</response>
-        [HttpPost("add/{planId:guid}/{deviceId:guid}")]
+        [HttpPost("add/{planId:guid}")]
         [ProducesResponseType(201)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> AddUserDevice(Guid planId, Guid deviceId)
+        // [ProducesResponseType(422)]
+        public async Task<IActionResult> AddUserDevice(Guid planId, [FromBody] DeviceToAddDto deviceToAdd)
         {
-            var userDevice = await _serviceManager.UserDevice.AddUserDevice(planId, deviceId, trackChanges: true);
+            // if (!ModelState.IsValid)
+            // {
+            //     return UnprocessableEntity(ModelState);
+            // }
+
+            var userDevice = await _serviceManager.UserDevice.AddUserDevice(planId, deviceToAdd, trackChanges: true);
             return Created("", userDevice);
         }
 
@@ -65,19 +72,24 @@ namespace StarTelecom.Controllers
         /// Swaps the phone numbers of two user devices
         /// </summary>
         /// <param name="planId">GUID that identifies the user plan record</param>
-        /// <param name="device1Id">GUID that identifies the device record</param>
-        /// <param name="device2Id">GUID that identifies the device record</param>
+        /// <param name="numSwapDtos">Arrays of two user device objects</param>
         /// <returns>Array of user devices with updated phone numbers</returns>
         /// <response code="200">Array of user devices with updated phone numbers</response>
         /// <response code="404">If the device object is not found</response>
         /// <response code="404">If the user plan is not found</response>
         /// <response code="404">If the user device is not found</response>
-        [HttpPut("swap/{planId:guid}/{device1Id:guid}/{device2Id:guid}")]
+        [HttpPut("swapphonenumbers/{planId:guid}/")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> SwapPhoneNumbers(Guid planId, Guid device1Id, Guid device2Id)
+        public async Task<IActionResult> SwapPhoneNumbers(Guid planId, [FromBody] DevicePhoneNumSwapDto[] numSwapDtos)
         {
-            var userDevices = await _serviceManager.UserDevice.SwapPhoneNumbers(planId, device1Id, device2Id, trackChanges: true);
+            // if (!ModelState.IsValid)
+            // {
+            //     return UnprocessableEntity(ModelState);
+            // }
+
+            var userDevices = await _serviceManager.UserDevice
+                .SwapPhoneNumbers(planId, numSwapDtos, trackChanges: true);
             return Ok(userDevices);
         }
     }

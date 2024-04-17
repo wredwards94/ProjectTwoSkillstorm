@@ -59,20 +59,25 @@ namespace Service
             var userPlan = await _serviceHelperMethods.CheckUserPlanExists(userPlanId, trackChanges);
             userPlan.Bills = (ICollection<Billing>)await _repositoryManager.Billing.GetAllBillsByUserPlanId(userPlanId, trackChanges);
             
+            // loop through bills and check if any are unpaid
             double sum = 0;
             foreach (var bill in userPlan.Bills)
             {
                 if (!bill.IsPaid) sum += (double)bill.TotalAmount;
             }
-
             if (sum > 0) throw new NotAuthorizedException($"User has an outstanding balance of {sum}. Unpaid balances must be resolved before deactivating the plan.");
+
+            foreach (var bill in userPlan.Bills)
+            {
+                _repositoryManager.Billing.DeleteUserPlanBill(bill);
+            }
+            await _repositoryManager.SaveAsync();
 
             userPlan.Devices = (ICollection<UserDevice>)await _repositoryManager.UserDevice.GetUserPlanDevices(userPlanId, trackChanges);
             foreach (var device in userPlan.Devices)
             {
                 _repositoryManager.UserDevice.DeleteUserDevice(device);
             }
-
             await _repositoryManager.SaveAsync();
 
             _repositoryManager.UserPlan.DeleteUserPlan(userPlan);

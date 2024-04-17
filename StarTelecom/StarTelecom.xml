@@ -65,25 +65,25 @@
             <response code="404">If the user is not found</response>
             <response code="404">If the user device is not found</response>
         </member>
-        <member name="M:StarTelecom.Controllers.UserDeviceController.AddUserDevice(System.Guid,System.Guid)">
+        <member name="M:StarTelecom.Controllers.UserDeviceController.AddUserDevice(System.Guid,Shared.CreationDtos.DeviceToAddDto)">
             <summary>
             Adds a new user device in the database
             </summary>
             <param name="planId">GUID that identifies the user plan record</param>
-            <param name="deviceId">GUID that identifies the device record</param>
-            <returns>The newly registered user object</returns>
+            <param name="deviceToAdd">A user device object containing user plan id and device id</param>
+            <returns>The newly registered user device object</returns>
             <response code="201">Returns the newly registered user device object</response>
             <response code="404">If the device object is not found</response>
-            <response code="404">If the user is not found</response>
+            <response code="422">If the device object is null</response>
             <response code="404">If the user device is not found</response>
         </member>
-        <member name="M:StarTelecom.Controllers.UserDeviceController.SwapPhoneNumbers(System.Guid,System.Guid,System.Guid)">
+        <member name="M:StarTelecom.Controllers.UserDeviceController.SwapPhoneNumbers(System.Guid,Shared.UpdateDtos.DevicePhoneNumSwapDto[])">
             <summary>
             Swaps the phone numbers of two user devices
             </summary>
             <param name="planId">GUID that identifies the user plan record</param>
-            <param name="device1Id">GUID that identifies the device record</param>
-            <param name="device2Id">GUID that identifies the device record</param>
+            <param name="deviceOne">GUID that identifies the device record</param>
+            <param name="deviceTwo">GUID that identifies the device record</param>
             <returns>Array of user devices with updated phone numbers</returns>
             <response code="200">Array of user devices with updated phone numbers</response>
             <response code="404">If the device object is not found</response>

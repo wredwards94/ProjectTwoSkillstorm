@@ -8,7 +8,11 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Shared.CreationDtos;
+using Shared.ResponseDtos;
+using Shared.UpdateDtos;
 
 namespace Service
 {
@@ -16,21 +20,23 @@ namespace Service
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerManager _logger;
+        private readonly IMapper _mapper;
         private readonly ServiceHelperMethods _serviceHelperMethods;
         private readonly UserManager<User> _userManager;
 
-        public UserDeviceService(IRepositoryManager repositoryManager, ILoggerManager logger, UserManager<User> userManager)
+        public UserDeviceService(IRepositoryManager repositoryManager, ILoggerManager logger, IMapper mapper, UserManager<User> userManager)
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
+            _mapper = mapper;
             _userManager = userManager;
             _serviceHelperMethods = new ServiceHelperMethods(repositoryManager);
         }
 
-        public async Task<UserDevice> AddUserDevice(Guid planId, Guid deviceId, bool trackChanges)
+        public async Task<UserDeviceResponseDto> AddUserDevice(Guid planId, DeviceToAddDto deviceToAdd, bool trackChanges)
         {
             var userPlan = await _serviceHelperMethods.CheckUserPlanExists(planId, trackChanges);
-            await _serviceHelperMethods.CheckDeviceExists(deviceId, trackChanges);
+            await _serviceHelperMethods.CheckDeviceExists(deviceToAdd.DeviceId, trackChanges);
 
             userPlan.Plan = await _repositoryManager.PhonePlan.GetPhonePlan(userPlan.PlanId, trackChanges);
 
@@ -41,30 +47,31 @@ namespace Service
             var userDevice = new UserDevice
             {
                 UserPlanId = userPlan.Id,
-                DeviceId = deviceId,
+                DeviceId = deviceToAdd.DeviceId,
                 PhoneNumber = GenerateRandomPhoneNumber(),
                 ActivationDate = DateTime.Now.Date,
             };
 
             _repositoryManager.UserDevice.CreateUserDevice(userDevice);
             await _repositoryManager.SaveAsync();
-            return userDevice;
+            
+            return _mapper.Map<UserDeviceResponseDto>(userDevice);
         }
 
-        public async Task<UserDevice[]> SwapPhoneNumbers(Guid planId, Guid userDeviceId1, Guid userDeviceId2, bool trackChanges)
+        public async Task<UserDeviceResponseDto[]> SwapPhoneNumbers(Guid planId, DevicePhoneNumSwapDto[] numSwapDtos, bool trackChanges)
         {
             await _serviceHelperMethods.CheckUserPlanExists(planId, trackChanges);
             
-            var userDevice1 = await _serviceHelperMethods.CheckUserDeviceExists(userDeviceId1, trackChanges);
-            var userDevice2 = await _serviceHelperMethods.CheckUserDeviceExists(userDeviceId2, trackChanges);
+            var deviceOne = await _serviceHelperMethods.CheckUserDeviceExists(numSwapDtos[0].Id, trackChanges);
+            var deviceTwo = await _serviceHelperMethods.CheckUserDeviceExists(numSwapDtos[1].Id, trackChanges);
             
-            (userDevice1.PhoneNumber, userDevice2.PhoneNumber) = (userDevice2.PhoneNumber, userDevice1.PhoneNumber);
+            (deviceOne.PhoneNumber, deviceTwo.PhoneNumber) = (deviceTwo.PhoneNumber, deviceOne.PhoneNumber);
             
-            _repositoryManager.UserDevice.UpdateUserDevice(userDevice1);
-            _repositoryManager.UserDevice.UpdateUserDevice(userDevice2);
+            _repositoryManager.UserDevice.UpdateUserDevice(deviceOne);
+            _repositoryManager.UserDevice.UpdateUserDevice(deviceTwo);
             await _repositoryManager.SaveAsync();
             
-            return [userDevice1, userDevice2];
+            return _mapper.Map<UserDeviceResponseDto[]>(new[] {deviceOne, deviceTwo});
         }
 
         public async Task<UserDevice> GetUserDevice(string userId, Guid userDeviceId, bool trackChanges)
@@ -73,6 +80,7 @@ namespace Service
             if (user == null) throw new UserNotFoundException(userId);
             
             var userDevice = await _serviceHelperMethods.CheckUserDeviceExists(userDeviceId, trackChanges);
+            userDevice.Device = await _repositoryManager.Device.GetDevice(userDevice.DeviceId ?? Guid.Empty, trackChanges);
             
             return userDevice;
         }

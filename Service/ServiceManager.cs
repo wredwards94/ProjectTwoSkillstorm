@@ -22,7 +22,7 @@ public class ServiceManager : IServiceManager
     {
         _deviceService = new Lazy<IDeviceService>(() => new DeviceService(repositoryManager, logger, mapper));
         _phonePlanService = new Lazy<IPhonePlanService>(() => new PhonePlanService(repositoryManager, logger, mapper));
-        _userDeviceService = new Lazy<IUserDeviceService>(() => new UserDeviceService(repositoryManager, logger, userManager));
+        _userDeviceService = new Lazy<IUserDeviceService>(() => new UserDeviceService(repositoryManager, logger, mapper, userManager));
         _userPlanService = new Lazy<IUserPlanService>(() => new UserPlanService(repositoryManager, logger, mapper, userManager));
         _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, logger, mapper, userManager));
         _authenticationService =

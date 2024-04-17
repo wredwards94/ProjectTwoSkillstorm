@@ -43,13 +43,9 @@ namespace StarTelecom.Controllers
         [HttpGet("{userPlanId:guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<UserPlanResponseDto> GetUserPlan(string userId, Guid userPlanId)
-        {
-            return await _serviceManager.UserPlan.GetUserPlan(userId, userPlanId, trackChanges: false);
-            //return Ok(userPlan);
-            //return userPlan;
-        }
-        
+        public async Task<UserPlanResponseDto> GetUserPlan(string userId, Guid userPlanId) => 
+            await _serviceManager.UserPlan.GetUserPlan(userId, userPlanId, trackChanges: false);
+
         /// <summary>
         /// Adds a new user plan in the database
         /// </summary>
