@@ -67,6 +67,9 @@ namespace Service
             var deviceOne = await _serviceHelperMethods.CheckUserDeviceExists(numSwapDtos[0].Id, trackChanges);
             var deviceTwo = await _serviceHelperMethods.CheckUserDeviceExists(numSwapDtos[1].Id, trackChanges);
             
+            deviceOne.Device = await _repositoryManager.Device.GetDevice(deviceOne.DeviceId ?? Guid.Empty, trackChanges);
+            deviceTwo.Device = await _repositoryManager.Device.GetDevice(deviceTwo.DeviceId ?? Guid.Empty, trackChanges);
+            
             (deviceOne.PhoneNumber, deviceTwo.PhoneNumber) = (deviceTwo.PhoneNumber, deviceOne.PhoneNumber);
             
             _repositoryManager.UserDevice.UpdateUserDevice(deviceOne);
@@ -82,6 +85,11 @@ namespace Service
             if (user == null) throw new UserNotFoundException(userId);
             
             var userDevices = await _repositoryManager.UserDevice.GetUserDevicesByUserId(userId, trackChanges);
+            foreach(var userDevice in userDevices)
+            {
+                Guid deviceId = userDevice.DeviceId ?? Guid.Empty;
+                userDevice.Device = await _repositoryManager.Device.GetDevice(deviceId, trackChanges);
+            }
             
             var userDevicesDto = _mapper.Map<IEnumerable<UserDeviceResponseDto>>(userDevices);
             return userDevicesDto;

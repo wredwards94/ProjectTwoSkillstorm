@@ -216,17 +216,5 @@
         <member name="M:StarTelecom.Migrations.UserDeviceAddedUserId.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="T:StarTelecom.Migrations.UpdatedPassword">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.UpdatedPassword.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.UpdatedPassword.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:StarTelecom.Migrations.UpdatedPassword.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
     </members>
 </doc>
