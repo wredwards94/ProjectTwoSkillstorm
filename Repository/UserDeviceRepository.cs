@@ -20,8 +20,11 @@ namespace Repository
         public async Task<UserDevice> GetUserDevice(Guid userDeviceId, bool trackChanges) =>
             await FindByCondition(ud => ud.Id.Equals(userDeviceId), trackChanges).SingleOrDefaultAsync();
 
-        public async Task<IEnumerable<UserDevice>> GetUserPlanDevices(Guid userPlanId, bool trackChanges) =>
+        public async Task<IEnumerable<UserDevice>> GetUserPlanDevicesByPlanId(Guid userPlanId, bool trackChanges) =>
             await FindByCondition(ud => ud.UserPlanId.Equals(userPlanId), trackChanges).ToListAsync();
+        
+       public async Task<IEnumerable<UserDevice>> GetUserDevicesByUserId(string userId, bool trackChanges) =>
+            await FindByCondition(ud => ud.UserId.Equals(userId), trackChanges).ToListAsync();
         
         public void UpdateUserDevice(UserDevice userDevice) => Update(userDevice);
     }

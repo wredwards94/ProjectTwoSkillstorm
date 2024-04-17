@@ -12,6 +12,7 @@ public class User : IdentityUser
     [Required]
     public string? LastName { get; set; }
     
+    
     public string? Address { get; set; }
     public string? RefreshToken { get; set; }
     public DateTime RefreshTokenExpiryTime { get; set; }

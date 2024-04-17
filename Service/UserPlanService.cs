@@ -73,7 +73,7 @@ namespace Service
             }
             await _repositoryManager.SaveAsync();
 
-            userPlan.Devices = (ICollection<UserDevice>)await _repositoryManager.UserDevice.GetUserPlanDevices(userPlanId, trackChanges);
+            userPlan.Devices = (ICollection<UserDevice>)await _repositoryManager.UserDevice.GetUserPlanDevicesByPlanId(userPlanId, trackChanges);
             foreach (var device in userPlan.Devices)
             {
                 _repositoryManager.UserDevice.DeleteUserDevice(device);

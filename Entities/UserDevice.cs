@@ -16,6 +16,9 @@ public class UserDevice
 
     [ForeignKey(nameof(UserPlan))]
     public Guid? UserPlanId { get; set; }
+    
+    [ForeignKey(nameof(User))]
+    public string? UserId { get; set; }
 
     [DataType(DataType.Date)]
     public DateTime? ActivationDate { get; set; }

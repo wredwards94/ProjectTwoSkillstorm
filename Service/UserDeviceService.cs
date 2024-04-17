@@ -40,7 +40,7 @@ namespace Service
 
             userPlan.Plan = await _repositoryManager.PhonePlan.GetPhonePlan(userPlan.PlanId, trackChanges);
 
-            userPlan.Devices = (ICollection<UserDevice>)await _repositoryManager.UserDevice.GetUserPlanDevices(userPlan.Id, trackChanges);
+            userPlan.Devices = (ICollection<UserDevice>)await _repositoryManager.UserDevice.GetUserPlanDevicesByPlanId(userPlan.Id, trackChanges);
 
             if (userPlan.Devices.Count == userPlan.Plan.DeviceLimit) throw new DeviceLimitExceededException(userPlan.Id);
 
@@ -58,9 +58,10 @@ namespace Service
             return _mapper.Map<UserDeviceResponseDto>(userDevice);
         }
 
-        public async Task<UserDeviceResponseDto[]> SwapPhoneNumbers(Guid planId, DevicePhoneNumSwapDto[] numSwapDtos, bool trackChanges)
+        public async Task<IEnumerable<UserDeviceResponseDto>> SwapPhoneNumbers(string userId, List<DevicePhoneNumSwapDto> numSwapDtos, bool trackChanges)
         {
-            await _serviceHelperMethods.CheckUserPlanExists(planId, trackChanges);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
             
             var deviceOne = await _serviceHelperMethods.CheckUserDeviceExists(numSwapDtos[0].Id, trackChanges);
             var deviceTwo = await _serviceHelperMethods.CheckUserDeviceExists(numSwapDtos[1].Id, trackChanges);
@@ -71,10 +72,21 @@ namespace Service
             _repositoryManager.UserDevice.UpdateUserDevice(deviceTwo);
             await _repositoryManager.SaveAsync();
             
-            return _mapper.Map<UserDeviceResponseDto[]>(new[] {deviceOne, deviceTwo});
+            return _mapper.Map<IEnumerable<UserDeviceResponseDto>>(new List<UserDevice> { deviceOne, deviceTwo });
         }
 
-        public async Task<UserDevice> GetUserDevice(string userId, Guid userDeviceId, bool trackChanges)
+        public async Task<IEnumerable<UserDeviceResponseDto>> GetUserDevicesByUserId(string userId, bool trackChanges)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
+            
+            var userDevices = await _repositoryManager.UserDevice.GetUserDevicesByUserId(userId, trackChanges);
+            
+            var userDevicesDto = _mapper.Map<IEnumerable<UserDeviceResponseDto>>(userDevices);
+            return userDevicesDto;
+        }
+
+        public async Task<UserDeviceResponseDto> GetUserDevice(string userId, Guid userDeviceId, bool trackChanges)
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) throw new UserNotFoundException(userId);
@@ -82,21 +94,24 @@ namespace Service
             var userDevice = await _serviceHelperMethods.CheckUserDeviceExists(userDeviceId, trackChanges);
             userDevice.Device = await _repositoryManager.Device.GetDevice(userDevice.DeviceId ?? Guid.Empty, trackChanges);
             
-            return userDevice;
+            var userDeviceDto = _mapper.Map<UserDeviceResponseDto>(userDevice);
+            return userDeviceDto;
         }
 
-        public async Task<IEnumerable<UserDevice>> GetUserPlanDevices(string userId, Guid userPlanId, bool trackChanges)
+        public async Task<IEnumerable<UserDeviceResponseDto>> GetUserDevicesByUserPlanId(string userId, Guid userPlanId, bool trackChanges)
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) throw new UserNotFoundException(userId);
             
-            var userDevices = await _repositoryManager.UserDevice.GetUserPlanDevices(userPlanId, trackChanges);
+            var userDevices = await _repositoryManager.UserDevice.GetUserPlanDevicesByPlanId(userPlanId, trackChanges);
             foreach(var userDevice in userDevices)
             {
                 Guid deviceId = userDevice.DeviceId ?? Guid.Empty;
                 userDevice.Device = await _repositoryManager.Device.GetDevice(deviceId, trackChanges);
             }
-            return userDevices;
+            
+            var userDevicesDto = _mapper.Map<IEnumerable<UserDeviceResponseDto>>(userDevices);
+            return userDevicesDto;
         }
         public async Task DeleteUserDevice(string userId, UserDevice device, bool trackChanges)
         {

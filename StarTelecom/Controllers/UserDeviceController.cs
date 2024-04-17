@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.CreationDtos;
+using Shared.ResponseDtos;
 using Shared.UpdateDtos;
 
 namespace StarTelecom.Controllers
@@ -26,8 +27,21 @@ namespace StarTelecom.Controllers
         [HttpGet("plan/{userPlanId:guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> GetUserPlanDevices(string userId, Guid userPlanId) =>
-            Ok(await _serviceManager.UserDevice.GetUserPlanDevices(userId, userPlanId, trackChanges: false));
+        public async Task<IEnumerable<UserDeviceResponseDto>> GetUserPlanDevicesByUserPlanId(string userId,
+            Guid userPlanId) =>
+            await _serviceManager.UserDevice.GetUserDevicesByUserPlanId(userId, userPlanId, trackChanges: false);
+
+        /// <summary>
+        /// Gets all user devices for the specified user in the database
+        /// </summary>
+        /// <returns>A list of all the user devices</returns>
+        /// <response code="200">Returns a list of user devices</response>
+        /// <response code="404">If the user is not found</response>
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public async Task<IEnumerable<UserDeviceResponseDto>> GetUserDevicesByUserId(string userId) =>
+            await _serviceManager.UserDevice.GetUserDevicesByUserId(userId, trackChanges: false);
 
         /// <summary>
         /// Gets a single user device using the device's id
@@ -60,10 +74,10 @@ namespace StarTelecom.Controllers
         // [ProducesResponseType(422)]
         public async Task<IActionResult> AddUserDevice(Guid planId, [FromBody] DeviceToAddDto deviceToAdd)
         {
-            // if (!ModelState.IsValid)
-            // {
-            //     return UnprocessableEntity(ModelState);
-            // }
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
 
             var userDevice = await _serviceManager.UserDevice.AddUserDevice(planId, deviceToAdd, trackChanges: true);
             return Created("", userDevice);
@@ -87,26 +101,24 @@ namespace StarTelecom.Controllers
         /// <summary>
         /// Swaps the phone numbers of two user devices
         /// </summary>
-        /// <param name="planId">GUID that identifies the user plan record</param>
+        /// <param name="userId">GUID that identifies the user plan record</param>
         /// <param name="numSwapDtos">Arrays of two user device objects</param>
         /// <returns>Array of user devices with updated phone numbers</returns>
         /// <response code="200">Array of user devices with updated phone numbers</response>
         /// <response code="404">If the device object is not found</response>
-        /// <response code="404">If the user plan is not found</response>
         /// <response code="404">If the user device is not found</response>
-        [HttpPut("swapphonenumbers/{planId:guid}/")]
+        [HttpPut("swapphonenumbers")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> SwapPhoneNumbers(Guid planId, [FromBody] DevicePhoneNumSwapDto[] numSwapDtos)
+        public async Task<IEnumerable<UserDeviceResponseDto>> SwapPhoneNumbers(string userId, [FromBody] List<DevicePhoneNumSwapDto> numSwapDtos)
         {
             // if (!ModelState.IsValid)
             // {
             //     return UnprocessableEntity(ModelState);
             // }
 
-            var userDevices = await _serviceManager.UserDevice
-                .SwapPhoneNumbers(planId, numSwapDtos, trackChanges: true);
-            return Ok(userDevices);
+            return await _serviceManager.UserDevice
+                .SwapPhoneNumbers(userId, numSwapDtos, trackChanges: true);
         }
     }
 }

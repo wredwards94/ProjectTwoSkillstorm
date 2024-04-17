@@ -1,3 +1,3 @@
 ﻿namespace Shared.ResponseDtos;
 
-public record UserDeviceResponseDto(Guid Id, Guid DeviceId, string PhoneNumber, Guid UserPlanId);
+public record UserDeviceResponseDto(Guid Id, Guid DeviceId, string UserId, string PhoneNumber, Guid UserPlanId);
