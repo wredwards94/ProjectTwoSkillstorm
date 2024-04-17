@@ -98,6 +98,13 @@ namespace Service
             }
             return userDevices;
         }
+        public async Task DeleteUserDevice(string userId, UserDevice device, bool trackChanges)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new UserNotFoundException(userId);
+            _repositoryManager.UserDevice.DeleteUserDevice(device);
+            await _repositoryManager.SaveAsync();
+        }
 
         private static string GenerateRandomPhoneNumber()
         {

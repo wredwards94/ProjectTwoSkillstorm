@@ -16,5 +16,7 @@ namespace Service.Contracts
         Task<UserDevice> GetUserDevice(string userId, Guid userDeviceId, bool trackChanges);
         Task<UserDeviceResponseDto> AddUserDevice(Guid planId, DeviceToAddDto deviceToAdd, bool trackChanges);
         Task<UserDeviceResponseDto[]> SwapPhoneNumbers(Guid planId, DevicePhoneNumSwapDto[] numSwapDtos, bool trackChanges);
+        Task DeleteUserDevice(string userId, UserDevice device, bool trackChanges);
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.CreationDtos;
@@ -66,6 +67,21 @@ namespace StarTelecom.Controllers
 
             var userDevice = await _serviceManager.UserDevice.AddUserDevice(planId, deviceToAdd, trackChanges: true);
             return Created("", userDevice);
+        }
+        /// <summary>
+        /// Removes a single user device from their account
+        /// </summary>
+        /// <param name="userId">GUID that identifies the user record</param>
+        /// <param name="userDeviceId">GUID that identifies the user device</param>
+        /// <returns>No content</returns>
+        /// <response code="204">Returns 204 status if successfully deleted</response>
+        /// <response code="404">If the user is not found</response>
+        /// <response code="404">If the user device is not found</response>
+        [HttpDelete("delete/{userDeviceId:guid}")]
+        public async Task<IActionResult> DeleteUserDevice(string userId, Guid userDeviceId)
+        {
+            await _serviceManager.UserDevice.DeleteUserDevice(userId, new UserDevice { Id = userDeviceId }, trackChanges: true);
+            return NoContent();
         }
 
         /// <summary>

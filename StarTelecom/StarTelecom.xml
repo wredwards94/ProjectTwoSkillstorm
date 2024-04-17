@@ -74,7 +74,17 @@
             <returns>The newly registered user device object</returns>
             <response code="201">Returns the newly registered user device object</response>
             <response code="404">If the device object is not found</response>
-            <response code="422">If the device object is null</response>
+            <response code="404">If the user device is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.UserDeviceController.DeleteUserDevice(System.String,System.Guid)">
+            <summary>
+            Removes a single user device from their account
+            </summary>
+            <param name="userId">GUID that identifies the user record</param>
+            <param name="userDeviceId">GUID that identifies the user device</param>
+            <returns>No content</returns>
+            <response code="204">Returns 204 status if successfully deleted</response>
+            <response code="404">If the user is not found</response>
             <response code="404">If the user device is not found</response>
         </member>
         <member name="M:StarTelecom.Controllers.UserDeviceController.SwapPhoneNumbers(System.Guid,Shared.UpdateDtos.DevicePhoneNumSwapDto[])">
@@ -82,8 +92,7 @@
             Swaps the phone numbers of two user devices
             </summary>
             <param name="planId">GUID that identifies the user plan record</param>
-            <param name="deviceOne">GUID that identifies the device record</param>
-            <param name="deviceTwo">GUID that identifies the device record</param>
+            <param name="numSwapDtos">Arrays of two user device objects</param>
             <returns>Array of user devices with updated phone numbers</returns>
             <response code="200">Array of user devices with updated phone numbers</response>
             <response code="404">If the device object is not found</response>
