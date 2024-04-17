@@ -4,6 +4,27 @@
         <name>StarTelecom</name>
     </assembly>
     <members>
+        <member name="M:StarTelecom.Controllers.BillingController.GetUserPlanBills(System.String,System.Guid)">
+            <summary>
+            Gets all bills for a user plan
+            </summary>
+            <param name="userId">GUID that identifies the device record</param>
+            <param name="userPlanId">GUID that identifies the device record</param>
+            <returns>An array of bill objects for the specified user plan</returns>
+            <response code="200">Array of user plan bill objects</response>
+            <response code="404">If the user is not found</response>
+        </member>
+        <member name="M:StarTelecom.Controllers.BillingController.GetBillById(System.String,System.Guid,System.Guid)">
+            <summary>
+            Gets a single bill for a user plan
+            </summary>
+            <param name="userId">GUID that identifies the device record</param>
+            <param name="billId">GUID that identifies the bill record</param>
+            <param name="userPlanId">GUID that identifies the device record</param>
+            <returns>A single bill object for the specified user plan</returns>
+            <response code="200">User plan bill object</response>
+            <response code="404">If the user is not found</response>
+        </member>
         <member name="M:StarTelecom.Controllers.DeviceController.GetAllDevices">
             <summary>
             Gets all devices in the database
@@ -100,9 +121,9 @@
             Swaps the phone numbers of two user devices
             </summary>
             <param name="userId">GUID that identifies the user plan record</param>
-            <param name="numSwapDtos">Arrays of two user device objects</param>
-            <returns>Array of user devices with updated phone numbers</returns>
-            <response code="200">Array of user devices with updated phone numbers</response>
+            <param name="numSwapDtos">Array of two user device objects</param>
+            <returns>List of user devices with updated phone numbers</returns>
+            <response code="200">List of user devices with updated phone numbers</response>
             <response code="404">If the device object is not found</response>
             <response code="404">If the user device is not found</response>
         </member>
@@ -193,6 +214,18 @@
             <inheritdoc />
         </member>
         <member name="M:StarTelecom.Migrations.UserDeviceAddedUserId.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:StarTelecom.Migrations.UpdatedPassword">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.UpdatedPassword.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.UpdatedPassword.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:StarTelecom.Migrations.UpdatedPassword.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

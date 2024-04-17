@@ -20,12 +20,7 @@ namespace StarTelecom.Controllers
         /// <response code="200">Returns a list of devices</response>
         [HttpGet]
         [ProducesResponseType(200)]
-        public async Task<IEnumerable<DeviceResponseDto>> GetAllDevices()
-        {
-            var devices = await _serviceManager.Device.GetAllDevices(trackChanges: false);
-
-            return devices;
-        }
+        public async Task<IEnumerable<DeviceResponseDto>> GetAllDevices() => await _serviceManager.Device.GetAllDevices(trackChanges: false);
 
         /// <summary>
         /// Gets a single device using the device's id
@@ -37,10 +32,6 @@ namespace StarTelecom.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<DeviceResponseDto> GetDevice(Guid id)
-        {
-            var device = await _serviceManager.Device.GetDevice(id, trackChanges: false);
-            return device;
-        }
+        public async Task<DeviceResponseDto> GetDevice(Guid id) => await _serviceManager.Device.GetDevice(id, trackChanges: false);
     }
 }

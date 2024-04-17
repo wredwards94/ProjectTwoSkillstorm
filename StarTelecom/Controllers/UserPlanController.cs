@@ -27,7 +27,6 @@ namespace StarTelecom.Controllers
         public async Task<IEnumerable<UserPlanResponseDto>> GetUserPlans(string userId)
         {
             var userPlans = await _serviceManager.UserPlan.GetUserPlans(userId, trackChanges: false);
-            //return Ok(userPlans);
             return userPlans;
         }
 

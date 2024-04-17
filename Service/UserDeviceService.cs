@@ -49,6 +49,7 @@ namespace Service
                 UserPlanId = userPlan.Id,
                 DeviceId = deviceToAdd.DeviceId,
                 PhoneNumber = GenerateRandomPhoneNumber(),
+                UserId = userPlan.UserId,
                 ActivationDate = DateTime.Now.Date,
             };
 

@@ -56,8 +56,8 @@ namespace StarTelecom.Controllers
         [HttpGet("device/{userDeviceId:guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> GetUserDevice(string userId, Guid userDeviceId) =>
-            Ok(await _serviceManager.UserDevice.GetUserDevice(userId, userDeviceId, trackChanges: false));
+        public async Task<UserDeviceResponseDto> GetUserDevice(string userId, Guid userDeviceId) =>
+            await _serviceManager.UserDevice.GetUserDevice(userId, userDeviceId, trackChanges: false);
 
         /// <summary>
         /// Adds a new user device in the database
@@ -102,9 +102,9 @@ namespace StarTelecom.Controllers
         /// Swaps the phone numbers of two user devices
         /// </summary>
         /// <param name="userId">GUID that identifies the user plan record</param>
-        /// <param name="numSwapDtos">Arrays of two user device objects</param>
-        /// <returns>Array of user devices with updated phone numbers</returns>
-        /// <response code="200">Array of user devices with updated phone numbers</response>
+        /// <param name="numSwapDtos">Array of two user device objects</param>
+        /// <returns>List of user devices with updated phone numbers</returns>
+        /// <response code="200">List of user devices with updated phone numbers</response>
         /// <response code="404">If the device object is not found</response>
         /// <response code="404">If the user device is not found</response>
         [HttpPut("swapphonenumbers")]

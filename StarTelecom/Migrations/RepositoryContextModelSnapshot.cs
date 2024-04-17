@@ -53,7 +53,7 @@ namespace StarTelecom.Migrations
 
                     b.HasIndex("UserPlanId");
 
-                    b.ToTable("Billing");
+                    b.ToTable("Billing", (string)null);
 
                     b.HasData(
                         new
@@ -214,7 +214,7 @@ namespace StarTelecom.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Devices");
+                    b.ToTable("Devices", (string)null);
 
                     b.HasData(
                         new
@@ -327,7 +327,7 @@ namespace StarTelecom.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PhonePlans");
+                    b.ToTable("PhonePlans", (string)null);
 
                     b.HasData(
                         new
@@ -536,7 +536,7 @@ namespace StarTelecom.Migrations
 
                     b.HasIndex("UserPlanId");
 
-                    b.ToTable("UserDevices");
+                    b.ToTable("UserDevices", (string)null);
 
                     b.HasData(
                         new
@@ -622,7 +622,7 @@ namespace StarTelecom.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserPlans");
+                    b.ToTable("UserPlans", (string)null);
 
                     b.HasData(
                         new
