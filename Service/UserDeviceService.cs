@@ -83,6 +83,11 @@ namespace Service
             if (user == null) throw new UserNotFoundException(userId);
             
             var userDevices = await _repositoryManager.UserDevice.GetUserPlanDevices(userPlanId, trackChanges);
+            foreach(var userDevice in userDevices)
+            {
+                Guid deviceId = userDevice.DeviceId ?? Guid.Empty;
+                userDevice.Device = await _repositoryManager.Device.GetDevice(deviceId, trackChanges);
+            }
             return userDevices;
         }
 

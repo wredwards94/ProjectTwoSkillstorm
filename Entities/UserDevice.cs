@@ -19,6 +19,7 @@ public class UserDevice
 
     [DataType(DataType.Date)]
     public DateTime? ActivationDate { get; set; }
+    public Device? Device { get; set; }
 
     // Add any additional properties or methods here
 }
