@@ -13,6 +13,8 @@ namespace Contracts
         Task<Billing> GetBillById(Guid billId, bool trackChanges);
         Task<IEnumerable<Billing>> GetBillsByUserIdPaidFalse(string userId);
         Task<IEnumerable<Billing>> GetBillsByUserId(string userId);
+        void CreateBill(Billing bill);
         void DeleteUserPlanBill(Billing bill);
+        void UpdateBill(Billing bill);
     }
 }

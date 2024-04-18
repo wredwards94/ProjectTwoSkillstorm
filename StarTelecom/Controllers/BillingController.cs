@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
+using Shared.CreationDtos;
 using Shared.ResponseDtos;
 
 namespace StarTelecom.Controllers;
@@ -48,4 +49,9 @@ public class BillingController : ControllerBase
     [ProducesResponseType(200)]
     public async Task<IEnumerable<BillingResponseDto>> GetAllBillsForUser(string userId) => 
         await _service.Billing.GetAllBillsForUser(userId, trackChanges: false);
+    
+    [HttpPut("billpay")]
+    [ProducesResponseType(204)]
+    public async Task<IActionResult> PayBill(string userId, [FromBody] BillToPayDto billToPay) => 
+        Ok(await _service.Billing.PayBill(userId, billToPay));
 }

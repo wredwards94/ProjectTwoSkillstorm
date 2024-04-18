@@ -29,7 +29,11 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
-        
+
+        public void CreateBill(Billing bill) => Create(bill);
+
         public void DeleteUserPlanBill(Billing bill) => Delete(bill);
+        
+        public void UpdateBill(Billing bill) => Update(bill);
     }
 }

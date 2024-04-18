@@ -32,12 +32,12 @@ namespace Service
             _serviceHelperMethods = new ServiceHelperMethods(repositoryManager);
         }
 
-        public async Task<UserPlan> CreateUserPlan(string userId, Guid planId, bool trackChanges)
+        public async Task<UserPlanResponseDto> CreateUserPlan(string userId, Guid planId, bool trackChanges)
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) throw new UserNotFoundException(userId);
 
-            await _serviceHelperMethods.CheckPhonePlanExists(planId, trackChanges);
+            var plan = await _serviceHelperMethods.CheckPhonePlanExists(planId, trackChanges);
 
             var userPlanToSave = new UserPlan
             {
@@ -47,8 +47,22 @@ namespace Service
 
             _repositoryManager.UserPlan.CreateUserPlan(userPlanToSave);
             await _repositoryManager.SaveAsync();
+            
+            var bill = new Billing
+            {
+                UserPlanId = userPlanToSave.Id,
+                UserId = userId,
+                TotalAmount = plan.Price,
+                IsPaid = false,
+                BillingDate = DateTime.Now.Date,
+                DueDate = DateTime.Now.Date.AddDays(30)
+            };
+            _repositoryManager.Billing.CreateBill(bill);
+            await _repositoryManager.SaveAsync();
+            
+            Console.WriteLine(userPlanToSave.Id);
 
-            return userPlanToSave;
+            return _mapper.Map<UserPlanResponseDto>(userPlanToSave);
         }
 
         public async Task DeleteUserPlan(string userId, Guid userPlanId, bool trackChanges)

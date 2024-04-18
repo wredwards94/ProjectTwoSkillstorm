@@ -13,6 +13,6 @@ namespace Service.Contracts
         Task<IEnumerable<UserPlanResponseDto>> GetUserPlans(string userId, bool trackChanges);
         Task<UserPlanResponseDto> GetUserPlan(string userId, Guid id, bool trackChanges);
         Task DeleteUserPlan(string userId, Guid planId, bool trackChanges);
-        Task<UserPlan> CreateUserPlan(string userId, Guid planId, bool trackChanges);
+        Task<UserPlanResponseDto> CreateUserPlan(string userId, Guid planId, bool trackChanges);
     }
 }
