@@ -22,8 +22,8 @@ namespace Repository
         public async Task<Billing> GetBillById(Guid billId, bool trackChanges) =>
             await FindByCondition(b => b.Id.Equals(billId), trackChanges).FirstOrDefaultAsync();
 
-        public async Task<IEnumerable<Billing>> GetBillsByUserId(string userId, bool trackChanges) => 
-            await FindByCondition(b => b.UserId.Equals(userId), false).ToListAsync();
+        public async Task<IEnumerable<Billing>> GetBillsByUserIdPaidFalse(string userId) =>
+            await FindByCondition(b => b.UserId.Equals(userId) && b.IsPaid == false, false).ToListAsync();
 
         public async Task<IEnumerable<Billing>> GetBillsByUserId(string userId)
         {

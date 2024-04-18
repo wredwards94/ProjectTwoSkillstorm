@@ -76,7 +76,7 @@ namespace Service
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) throw new UserNotFoundException(userId);
 
-            var bills = await _repositoryManager.Billing.GetBillsByUserId(userId, trackChanges);
+            var bills = await _repositoryManager.Billing.GetBillsByUserIdPaidFalse(userId);
             foreach (var bill in bills)
             {
                 bill.UserPlan = await _repositoryManager.UserPlan.GetUserPlanById(bill.UserPlanId, trackChanges);
